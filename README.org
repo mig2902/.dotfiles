@@ -1,8 +1,6 @@
-#+title: Readme
+#+title: Dotfiles
 #+options: toc:nil num:nil author:nil date:nil
 
-* Dotfiles
-  
 [[file:screenshot.png]]
 Este repositorio es un respaldo para los archivos de configuración de los programas que más uso. Cualquiera puede descargar, utilizar, clonar, etc. este repositorio de acuerdo a la licencia MIT, aunque no se si mis archivos de configuración le puedan funcionar a otra persona, no al menos sin realizar ciertas modificaciones en algunas rutas.
 
