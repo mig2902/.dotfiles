@@ -7,8 +7,10 @@ super + F2
       firefox
 
 # Thunar
+
 super + f
-      thunar
+  termite -e ranger 
+
 super + shift + f
       gksu thunar
 
@@ -19,6 +21,11 @@ super + F5
 #Emacsclient
 super + e
       emacsclient -c
+
+#htop
+super + F4
+      termite -e htop
+      
 
 # Matar ventana
 super + ctrl + x

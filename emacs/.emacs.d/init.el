@@ -49,7 +49,7 @@
 (global-set-key (kbd "C-c e") 'config-visit)
 
 ;; Reevaluar init.el
-(global-set-key (kbd "C-c r") '(load-file user-init-file))
+(global-set-key (kbd "C-c r") '(load-file "~/.emacs.d/init.el"))
 
 ;; Seguir al buffer nuevo
 (defun split-and-follow-horizontally ()
