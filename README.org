@@ -1,0 +1,19 @@
+#+title: Readme
+#+options: toc:nil num:nil author:nil date:nil
+
+* Dotfiles
+  
+[[file:screenshot.png]]
+Este repositorio es un respaldo para los archivos de configuración de los programas que más uso. Cualquiera puede descargar, utilizar, clonar, etc. este repositorio de acuerdo a la licencia MIT, aunque no se si mis archivos de configuración le puedan funcionar a otra persona, no al menos sin realizar ciertas modificaciones en algunas rutas.
+
+** Uso de GNU/Stow
+Para administrar mis /dotfiles/ estoy usando *GNU/Stow*, un programa que permite crear enlaces simbólicos fácilmente a la ruta necesaria. La manera en que lo uso, básicamente, es la siguiente:
+
+1. En ~$HOME~ tengo una carpeta llamada ~.dotfiles~.
+2. Dentro de ~.dotfiles~ mantengo varias carpetas para mantener administrados los archivos: los archivos de *i3* van en ~.dotfiles/i3~, los de *bspwm* van en ~.dotfiles/bspwm~ y de la misma forma el resto de aplicaciones.
+3. Por cada /dotfile/ mantengo *la misma estructura relativa a $HOME*. Por ejemplo, el archivo de configuración de bspwm vive en ~/home/.config/bspwm/~;, por lo tanto, el archivo de bspwm en mi carpeta ~.dotfiles~ se encuentra en ~/home/.dotfiles/bspwm/.config/bspwm~.
+4. Para realizar los enlaces simbólicos a sus respectivas rutas únicamente ejecuto ~stow {carpeta}~. Por ejemplo, para realizar enlace simbólico de todos los archivos de i3, ejecuto ~stow i3~.
+
+Este método hace mucho más sencillo crear los enlaces simbólicos en lugar de usar ~ln~ y permite restaurar todos mis archivos de configuración a una gran velocidad, sin necesidad de diseñar scripts o copiar los enlaces manualmente.
+ 
+
