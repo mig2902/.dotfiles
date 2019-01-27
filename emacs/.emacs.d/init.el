@@ -1,59 +1,383 @@
-;;================================================
+;=================================================
+;
 ;   █████  ██████████   ██████    █████   ██████
 ;  ██░░░██░░██░░██░░██ ░░░░░░██  ██░░░██ ██░░░░ 
 ; ░███████ ░██ ░██ ░██  ███████ ░██  ░░ ░░█████ 
 ; ░██░░░░  ░██ ░██ ░██ ██░░░░██ ░██   ██ ░░░░░██
 ; ░░██████ ███ ░██ ░██░░████████░░█████  ██████ 
-;  ░░░░░░ ░░░  ░░  ░░  ░░░░░░░░  ░░░░░  ░░░░░░  
-;================================================
+;  ░░░░░░ ░░░  ░░  ░░  ░░░░░░░░  ░░░░░  ░░░░░░ 
+;
+;=================================================
 
-;; Repositorios
-;;==================
+;============================
+; CONFIGURACIONES GENERALES
+;============================
+
+;; Responder y/n
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Desplazarse una línea en lugar de media página
+(setq scroll-conservatively 100)
+
+;; Destacar la línea donde está el cursor
+(global-hl-line-mode t)
+
+;; Mandar los archivos de autosave a un directorio especial
+(setq backup-directory-alist
+      `((".*" . ,"~/.emacs.d/backups/")))
+(setq auto-save-file-name-transforms
+      `((".*" ,"~/.emacs.d/backups/")))
+
+;; Ocultar barras de menús y despalzamiento
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(global-set-key (kbd "M-m") 'menu-bar-mode) ; M-m hace aparecer el menú
+
+;; IDO
+(setq ido-enable-flex-matching nil)
+(setq ido-create-new-buffer 'always)
+(setq ido-everywhere t)
+(ido-mode 1)
+(global-set-key (kbd "C-x b") 'ido-switch-buffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Abrir configuración con C-c e
+(defun config-visit ()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+(global-set-key (kbd "C-c e") 'config-visit)
+
+;; Reevaluar init.el
+(global-set-key (kbd "C-c r") '(load-file user-init-file))
+
+;; Seguir al buffer nuevo
+(defun split-and-follow-horizontally ()
+  (interactive)
+  (split-window-below)
+  (balance-windows)
+  (other-window 1))
+(global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+
+(defun split-and-follow-vertically ()
+  (interactive)
+  (split-window-right)
+  (balance-windows)
+  (other-window 1))
+(global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+
+;; Paréntesis automáticos
+(setq electric-pair-pairs '(
+		      (?\( . ?\))
+		      (?\[ . ?\])
+		      (?\{ . ?\})
+		      ))
+(electric-pair-mode t)
+
+;; Muestra línea y columna actual en mode-line
+(line-number-mode 1)
+(column-number-mode 1)
+
+;; Matar buffer actual
+(defun kill-curr-buffer ()
+  (interactive)
+  (kill-buffer (current-buffer)))
+(global-set-key (kbd "C-x k") 'kill-curr-buffer)
+
+;; Visual line mode
+(global-set-key (kbd "C-c v") 'visual-line-mode)
+
+;; Dashboard al iniciar
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
+
+;; Flyspell con F5
+(global-set-key (kbd "<f5>")  'ispell-word) 
+
+;; Mostrar números de línea
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+
+;===============
+; REPOSITORIOS
+;===============
 
 (package-initialize)
 (require 'package)
+
+;; Repositorio melpa
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
-  (when (< emacs-major-version 24)
-    ;; For important compatibility libraries like cl-lib
-   (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
+;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+(add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+(when (< emacs-major-version 24)
+;; For important compatibility libraries like cl-lib
+(add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
 
+;; Repositorio local
 (add-to-list 'load-path "~/.emacs.d/modes")
 
-;;Definir cuando descargar paquetes
-;;====================================
-
+;; Definir cuando descargar paquetes
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; Wich-key
-;;===============
+;===============
+; PAQUETES
+;===============
 
+;==== which key ====
 (use-package which-key
   :ensure t
   :init
   (which-key-mode))
 
-;;Llamar al config.org
-;;=========================
+;;==== Telephone line ====
+(require 'telephone-line)
+(setq telephone-line-lhs
+'((evil . (telephone-line-evil-tag-segment))
+(accent . (telephone-line-vc-segment
+    telephone-line-erc-modified-channels-segment
+    telephone-line-process-segment))
+(nil . (telephone-line-buffer-segment))))
 
-(org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
-(global-hl-line-mode 1)
-(set-face-background 'highlight "#202734")
-(set-face-foreground 'highlight nil)
+(setq telephone-line-subseparator-faces '()) 
+(setq telephone-line-primary-left-separator 'telephone-line-abs-left
+telephone-line-secondary-left-separator 'telephone-line-abs-hollow-left
+telephone-line-primary-right-separator 'telephone-line-abs-right
+telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
+(setq telephone-line-height 24)
+(telephone-line-mode 1)
 
+;;==== elfeed ====
+(use-package elfeed
+  :ensure t
+  :bind ( :map elfeed-search-mode-map
+	       ("q" . bjm/elfeed-save-db-and-bury)
+	       ("Q" . bjm/elfeed-save-db-and-bury)
+	       ("m" . elfeed-toogle-star)
+	       ("M" . elfeed-toogle-star)
+	       )
+)
 
+;;==== IDO-vertical =====
+(use-package ido-vertical-mode
+    :ensure
+    :init
+    (ido-vertical-mode 1))
+
+;;==== Smex ====
+(use-package smex
+   :ensure t
+   :init (smex-initialize)
+   :bind
+   ("M-x" . smex))
+
+;;==== Avy ====
+(use-package avy
+  :ensure t
+  :bind
+  ("M-s" . avy-goto-char))
+
+;;==== Rainbow ====
+(use-package rainbow-mode
+   :ensure t
+   :config (rainbow-mode))
+
+;;==== Ace window ====
+(use-package ace-window
+   :ensure t
+   :init (ace-window 1))
+(global-set-key (kbd "C-x o") 'ace-window)
+
+;;==== Dashboard ====
+(use-package dashboard
+  :ensure t
+ :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-items '((recents . 5)
+		      (bookmarks . 5)
+		      (projects . 5))))
+  (setq dashboard-startup-banner 'logo)
+  (setq dashboard-banner-logo-title "Inserte frase edgy aquí")      (add-to-list 'dashboard-items '(agenda) t)
+  (setq show-week-agenda-p t)
+
+;;==== Ox-reveal =====
+(require 'ox-reveal)
+(setq org-reveal-root "file:///home/equipo/reveal.js")
+(setq org-reveal-title-slide nil)
+
+;;==== Yassnippet ====
+(use-package yasnippet
+   :ensure t
+   :config
+   (yas-global-mode)
+   (use-package yasnippet-snippets
+   :ensure t)
+   (yas-reload-all))
+
+;;==== Projectile ====
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-global-mode)
+  (setq projectile-completion-system 'ivy))
+(global-set-key (kbd "C-c p") 'projectile-switch-project)
+(global-set-key (kbd "C-c f") 'projectile-find-file)
+
+;;==== Swiper ====
+(use-package swiper
+  :ensure t
+  :bind (("C-s" . swiper))
+  )
+
+;;==== Auto-complete ====
+(use-package auto-complete
+  :ensure t
+  :init
+  (progn
+    (ac-config-default)
+    (global-auto-complete-mode t)
+    ))
+
+;;==== Evil-mode ====
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1)
+;; Make movement keys work respect visual lines
+(define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+(define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+(define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+;; Make horizontal movement cross lines
+(setq-default evil-cross-lines t))
+
+;;==== Nov.el ====
+(use-package nov
+  :ensure t)
+(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+
+;;==== Neotree ====
+(use-package neotree
+  :ensure t
+  :config
+  (global-set-key [f8] 'neotree-toggle)
+)
+
+;;==== Ox-pandoc ====
+(use-package ox-pandoc
+  :ensure t)
+(setq helm-bibtex-format-citation-functions
+      '((org-mode . (lambda (x) (insert (concat
+                                         "\\cite{"
+                                         (mapconcat 'identity x ",")
+                                         "}")) ""))))
+
+;;==== Magit ====
+(use-package magit
+  :ensure t
+)
+(global-set-key (kbd "C-x g") 'magit)
+
+;;==== Nord theme ====
+(use-package nord-theme
+  :ensure t
+  :config
+  (setq nord-region-highlight "frost")
+  (setq nord-comment-brightness 15)
+  :init
+  (load-theme 'nord t)
+)
+
+;;====================================
+;; CONFIGURACIONES DE ORG-MODE
+;;====================================
+
+;;==== org bullets ====
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode)))
+
+;;==== org-agenda ====
+(global-set-key (kbd "C-c a") 'org-agenda)
+(setq org-agenda-window-setup
+      'other-window)
+
+;;==== próximos 14 dias en agenda ====
+(setq org-agenda-span 14)
+(setq org-agenda-start-on-weekday nil)
+(setq org-agenda-start-day "-3d")
+
+;;==== Añadir partes de un archivo como link ====
+(global-set-key (kbd "C-c l") 'org-store-link)
+
+;;==== org-capture ====
+(global-set-key (kbd "C-c c") 'org-capture)
+(setq org-capture-templates
+ '(("t" "TODO" entry
+   (file+headline "~/Drive/sync/cuaderno/index.org" "TO-DO")
+   "* TODO %?\n%t" :prepend t)
+  ("n" "Notas" entry
+   (file+headline "~/Drive/sync/cuaderno/index.org" "Notas")
+   "* %?" :prepend t)
+  ("d" "Diario" entry
+   (file+olp+datetree "~/Drive/sync/cuaderno/diario.org")
+   "* %?" :prepend t)
+))
+
+;;==== Shift support ====
+(setq org-support-shift-select t)
+
+;;==== Ortografía ====
+(add-hook 'org-mode-hook 'turn-on-flyspell)
+
+;;==== Org-ref ====
+(use-package org-ref
+  :ensure t)
+(setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+
+;;==== Cireproc-org ====
+(add-to-list 'load-path "/home/equipo/.emacs.d/modes/")
+(require 'citeproc-org)
+;  (citeproc-org-setup)
+'(citeproc-org-locales-dir "/home/equipo/.emacs.d/csl-locales/")
+
+;;==== <el = emacs-lisp ====
+(add-to-list 'org-structure-template-alist
+       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
+
+;;==== Exportar en beamer ====
+'(org-beamer-mode 1)
+
+;;==== Formatos extra para latex ====
+(add-to-list 'org-latex-classes
+      '("koma-article"
+	"\\documentclass{scrartcl}"
+	("\\section{%s}" . "\\section*{%s}")
+	("\\subsection{%s}" . "\\subsection*{%s}")
+	("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+	("\\paragraph{%s}" . "\\paragraph*{%s}")
+	("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+	    
+(add-to-list 'org-latex-classes
+	     '("doc-recepcional"
+	       "\\documentclass{report}"
+	       ("\\chapter{%s}" . "\\chapter*{%s}")
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\subsection{%s}" . "\\subsection*{%s}")
+	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
+	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+	       )
+)
+
+;;===============================
+;; CONFIGURACIONES AUTOMÁTICAS
+;;===============================
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
@@ -182,4 +506,3 @@
  '(spaceline-unmodified ((t (:background "SkyBlue2" :foreground "#3E3D31" :inherit (quote mode-line)))))
  '(telephone-line-accent-active ((t (:inherit mode-line :background "#3B4251" :foreground "white")))))
 
-(rainbow-mode t)
