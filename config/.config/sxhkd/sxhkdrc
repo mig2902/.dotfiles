@@ -1,3 +1,16 @@
+################################################
+#
+#                  ██      ██          ██
+#                 ░██     ░██         ░██
+#   ██████ ██   ██░██     ░██  ██     ░██
+#  ██░░░░ ░░██ ██ ░██████ ░██ ██   ██████
+# ░░█████  ░░███  ░██░░░██░████   ██░░░██
+#  ░░░░░██  ██░██ ░██  ░██░██░██ ░██  ░██
+#  ██████  ██ ░░██░██  ░██░██░░██░░██████
+# ░░░░░░  ░░   ░░ ░░   ░░ ░░  ░░  ░░░░░░ 
+#
+###############################################
+
 ########################
 # Accesos directos
 ########################
@@ -6,10 +19,10 @@
 super + F2
       firefox
 
-# Thunar
+# Administrador de archivos
 
 super + f
-  termite -e ranger 
+  alacritty -e ranger 
 
 super + shift + f
       gksu thunar
@@ -25,12 +38,14 @@ super + e
 #htop
 super + F4
       termite -e htop
+
+#matar compton
+super + o
+     pkill compton 
+#revivir compton
+super + shift + o
+     compton -b --config ~/.config/compton.conf
       
-
-# Matar ventana
-super + ctrl + x
-      xkill
-
 # Audio
 XF86AudioMute
     pamixer -t
@@ -66,7 +81,7 @@ super + Print
 
 # Terminal
 super + Return
-	termite
+	alacritty
 
 # Lanzador de aplicaciones
 super + d
@@ -83,6 +98,10 @@ super + F12
 # Cerrar la ventana enfocada 
 super + shift + q 
 	bspc node -c
+
+# Matar ventana
+super + ctrl + x
+      xkill
 
 # Cambiar al modo monocle (la ventana ocupa todo el espacio)
 super + m
@@ -163,7 +182,7 @@ super + alt + shift + space
 ####################
 
 # expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
+super + alt + ctrl {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
@@ -173,3 +192,4 @@ super + alt + shift + {h,j,k,l}
 #Rotar la interfaz
 super + shift + {comma,period}
    bspc node @/ -R {90,270}
+
