@@ -22,7 +22,7 @@ super + F2
 # Administrador de archivos
 
 super + f
-  alacritty -e ranger 
+  alacritty -e nnn 
 
 super + shift + f
       gksu thunar
@@ -86,6 +86,10 @@ super + Return
 # Lanzador de aplicaciones
 super + d
 	rofi -show drun -theme material -eh 2 -lines 5 -show-icons -icon-theme Flat-remix Dark
+
+#Buscador de archivos/comandos/navegador
+super + space
+	  ~/.config/via/./via
 
 # Reiniciar sxhdk 
 super + shift + r

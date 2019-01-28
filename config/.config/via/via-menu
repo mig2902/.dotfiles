@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rofi -dmenu -theme material -eh 2 -lines 5 -p "Archivo/comando" -i -l 5

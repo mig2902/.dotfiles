@@ -1,0 +1,5 @@
+#!/bin/sh
+
+PATH="$HOME/.config/via:$PATH"
+
+via-feed | via-menu | via-open
