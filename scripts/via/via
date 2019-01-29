@@ -1,5 +1,5 @@
 #!/bin/sh
 
-PATH="$HOME/.config/via:$PATH"
+PATH="$HOME/.dotfiles/scripts/via:$PATH"
 
 via-feed | via-menu | via-open

@@ -22,7 +22,7 @@ super + F2
 # Administrador de archivos
 
 super + f
-  alacritty -e nnn 
+  alacritty -e lf 
 
 super + shift + f
       gksu thunar
@@ -37,7 +37,7 @@ super + e
 
 #htop
 super + F4
-      termite -e htop
+      alacritty -e htop
 
 #matar compton
 super + o
@@ -83,13 +83,14 @@ super + Print
 super + Return
 	alacritty
 
+
 # Lanzador de aplicaciones
 super + d
 	rofi -show drun -theme material -eh 2 -lines 5 -show-icons -icon-theme Flat-remix Dark
 
 #Buscador de archivos/comandos/navegador
 super + space
-	  ~/.config/via/./via
+	  ~/.dotfiles/scripts/via/via
 
 # Reiniciar sxhdk 
 super + shift + r
@@ -97,7 +98,7 @@ super + shift + r
 
 # quit bspwm normally
 super + F12
-	oblogout
+	~/.dotfiles/scripts/apagar.sh
 
 # Cerrar la ventana enfocada 
 super + shift + q 
