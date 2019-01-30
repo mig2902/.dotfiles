@@ -113,8 +113,6 @@ alias drive="~/scripts/grive-sync.sh"
 alias DRIVE="~/scripts./grive-sync.sh"
 alias emc="emacsclient -c"
 alias lolban="~/scripts/lolban.sh"
-alias dot="/usr/bin/git --git-dir ~/.dotfiles/ --work-tree=$HOME"
-alias DOT="/usr/bin/git --git-dir ~/.dotfiles/ --work-tree=$HOME"
 
 neofetch
 

@@ -90,15 +90,15 @@ super + d
 
 # Montar usb
 super + u
-      ~/.dotfiles/scripts/usb_montar
+      ~/scripts/usb_montar
 
 # Extraer usb
 super + shift + u
-      ~/.dotfiles/scripts/usb_extraer
+      ~/scripts/usb_extraer
 
 #Buscador de archivos/comandos/navegador
 super + space
-	  ~/.dotfiles/scripts/via/via
+	  ~/scripts/via/via
 
 # Reiniciar sxhdk 
 super + shift + r
@@ -106,7 +106,7 @@ super + shift + r
 
 # quit bspwm normally
 super + F12
-	~/.dotfiles/scripts/apagar.sh
+	~/scripts/apagar.sh
 
 # Cerrar la ventana enfocada 
 super + shift + q 
