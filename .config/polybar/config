@@ -88,7 +88,7 @@ locale = es_MX.UTF-8
 
 ;posición de los módulos
 modules-left = i3 bspwm sep-i3
-modules-center =
+modules-center = kde
 modules-right = sep-spo spotify sep-vol pulseaudio sep-date date sep-tray
 
 ;posición de la bandeja de notificaciones
@@ -635,3 +635,10 @@ type = custom/script
 exec = date &
 interval = 1
 click-left = echo left
+
+
+[module/kde]
+type = custom/script
+exec = ~/.config/polybar/scripts/kdeconnect/polybar-kdeconnect.sh 
+click-left = ~/.config/polybar/scripts/kdeconnect/polybar-kdeconnect-menu.sh 
+tail = true

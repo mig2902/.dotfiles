@@ -88,6 +88,14 @@ super + Return
 super + d
 	rofi -show drun -theme material -eh 2 -lines 5 -show-icons -icon-theme Flat-remix Dark
 
+# Montar usb
+super + u
+      ~/.dotfiles/scripts/usb_montar
+
+# Extraer usb
+super + shift + u
+      ~/.dotfiles/scripts/usb_extraer
+
 #Buscador de archivos/comandos/navegador
 super + space
 	  ~/.dotfiles/scripts/via/via
