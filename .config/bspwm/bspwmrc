@@ -19,7 +19,7 @@ bspc rule -a Thunar desktop='^3' follow=on
 bspc rule -a Screenkey manage=off
 bspc rule -a Firefox desktop='^2' follow=on
 bspc rule -a Spotify desktop='^10'
-bspc rule -a Libreoffice desktop'^4' follow=on
+bspc rule -a libreoffice desktop='^4' follow=on
 bspc rule -a Lxappareance state=floating
 bspc rule -a Nitrogen state=floating
 bspc rule -a Lightdm-settings state=floating
@@ -31,6 +31,7 @@ bspc rule -a Emacs state=tiled
 bspc rule -a Oblogout state=fullscreen
 bspc rule -a Zathura state=tiled
 bspc rule -a MPlayer state=floating
+bspc rule -a Sxiv state=floating
 
 # Autostart
 nitrogen --restore; sleep 1; compton -b &

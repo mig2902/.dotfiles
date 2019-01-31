@@ -116,3 +116,5 @@ alias lolban="~/scripts/lolban.sh"
 
 neofetch
 
+PATH="$HOME/scripts:$PATH"
+export PATH

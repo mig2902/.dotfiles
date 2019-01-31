@@ -22,7 +22,7 @@ super + F2
 # Administrador de archivos
 
 super + f
-  alacritty -e lf 
+  alacritty -e ranger 
 
 super + shift + f
       gksu thunar
@@ -90,11 +90,11 @@ super + d
 
 # Montar usb
 super + u
-      ~/scripts/usb_montar
+      ~/scripts/usb-montar
 
 # Extraer usb
-super + shift + u
-      ~/scripts/usb_extraer
+super + ctrl + u
+      ~/scripts/usb-extraer
 
 #Buscador de archivos/comandos/navegador
 super + space
@@ -106,11 +106,15 @@ super + shift + r
 
 # quit bspwm normally
 super + F12
-	~/scripts/apagar.sh
+	~/scripts/apagar
 
 # Cerrar la ventana enfocada 
 super + shift + q 
 	bspc node -c
+
+# Cerrar la ventana enfocada
+alt + F4
+    bspc node -c
 
 # Matar ventana
 super + ctrl + x
