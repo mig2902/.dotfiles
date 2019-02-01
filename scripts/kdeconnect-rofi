@@ -1,0 +1,39 @@
+#!/bin/sh
+
+id=$(kdeconnect-cli -a --id-only | awk '{print $1}')
+name=$(kdeconnect-cli -a --name-only)
+#bat=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$id org.kde.kdeconnect.device.battery.charge)
+if [ "$id" == "0" ]
+then
+    notify-send -a "Kde-connect" "No hay ningún dispositivo vinculado"
+else
+menu=$(echo -e "Enviar\nEncontrar\nPing\nSMS" | rofi -dmenu -theme material -eh 2 -i -p "$name")
+
+
+
+if [ "$menu" == 'Enviar' ]
+then
+    dir="/home/$USER/.dotfiles/configs/scripts/files"
+    ranger --choosefiles=$dir
+    send=$(cat $dir)
+    if [ "$send" != "" ]
+    then
+	kdeconnect-cli -d $id --share $send
+	sed -i '1,30d' $dir
+       else
+	   notify-send -a "Kde-connect" "No se seleccionó ningún archivo"
+    fi
+elif [ "$menu" == 'Encontrar' ]
+then
+     kdeconnect-cli -d $id --ring
+elif [ "$menu" == 'Ping' ]
+then
+     kdeconnect-cli -d $id --ping
+elif [ "$menu" == 'SMS' ]
+then
+       
+num=$(rofi -dmenu -p "Número")
+sms=$(rofi -dmenu -i -p "Mensaje")
+kdeconnect-cli -d $id --send-sms "$sms" --destination "$num"
+fi
+fi
