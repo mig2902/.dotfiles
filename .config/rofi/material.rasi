@@ -63,6 +63,7 @@ inputbar {
 
 prompt {
 	text-color: @base0D;
+	text-style: bold;
 }
 
 textbox-prompt-colon {
