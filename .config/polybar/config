@@ -649,9 +649,8 @@ click-left = echo left
 
 [module/kde]
 type = custom/script
-
 format-prefix = " "
 label = %output%%
-exec = qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$(kdeconnect-cli -l --id-only) org.kde.kdeconnect.device.battery.charge 
-interval = 600
+exec = ~/.config/polybar/scripts/kde-bat
+interval = 300
 format-background = #8C9FC5

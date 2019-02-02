@@ -1,4 +1,4 @@
-#!/bin/sh
+!/bin/sh
 
 var=$(printf "Apagar\nBloquear\nReiniciar\nSalir\nCancelar" | rofi -dmenu -theme material -eh 2 -i -p "¿Desea salir?") 
 
