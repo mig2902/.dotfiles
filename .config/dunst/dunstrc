@@ -1,8 +1,8 @@
 [global]
-    frame_width = 3
+    frame_width = 0
     frame_color = "#5294E2"
     
-    font = Fantasque Sans Mono 12
+    font = Fantasque Sans Mono 11
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
