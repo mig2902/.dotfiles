@@ -1,20 +1,20 @@
-!/bin/sh
+#!/bin/sh
 
-var=$(printf "Apagar\nBloquear\nReiniciar\nSalir\nCancelar" | rofi -dmenu -theme material -eh 2 -i -p "¿Desea salir?") 
+var=$(echo -e "Apagar\nBloquear\nReiniciar\nSalir\nCancelar" | rofi -dmenu -theme material -eh 2 -i -p "¿Desea salir?") 
 
-if [ "$var" == 'Apagar' ]
+if [ "$var" == 'Apagar' ]
 then
     systemctl poweroff
-elif [ "$var" == 'Bloquear' ]
+elif [ "$var" == 'Bloquear' ]
 then
     blurlock
-elif [ "$var" == 'Reiniciar' ]
+elif [ "$var" == 'Reiniciar' ]
 then
     systemctl reboot
-elif [ "$var" == 'Salir' ]
+elif [ "$var" == 'Salir' ]
 then
     bspc quit
-elif [ "$var" == 'Cancelar' ]
+elif [ "$var" == 'Cancelar' ]
 then
     echo cancelado
 fi
