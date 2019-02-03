@@ -11,16 +11,16 @@ menu=$(echo -e "Enviar\nEncontrar\nPing\nSMS" | rofi -dmenu -width 15 -lines 5 -
 
 if [ "$menu" == 'Enviar' ]
 then
-    dir="/home/$USER/scripts/files"
-    ranger --choosefiles=$dir
-    send=$(cat $dir)
-    echo $send
-    if [ "$send" != "" ]
+    kitty -e ranger --choosefiles=/tmp/kde-files
+    dir=$(find /tmp/kde-files)
+    if [ "$dir" == "/tmp/kde-files" ]
     then
+	send=$(cat /tmp/kde-files)
 	kdeconnect-cli -d $id --share $send
-	sed -i '1,30d' $dir
+	rm /tmp/kde-files
+	notify-send -a "Kdeconnect" "Enviando $send a $name"
        else
-	   notify-send -a "Kde-connect" "No se seleccionó ningún archivo"
+	   notify-send -a "Kdeconnect" "No se seleccionó ningún archivo"
     fi
 elif [ "$menu" == 'Encontrar' ]
 then
@@ -37,5 +37,5 @@ kdeconnect-cli -d $id --send-sms "$sms" --destination "$num"
 fi
 
 else
-    notify-send -a "Kde-connect" "No hay ningún dispositivo vinculado"
+    notify-send -a "Kdeconnect" "No hay ningún dispositivo vinculado"
 fi

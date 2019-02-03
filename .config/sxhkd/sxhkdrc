@@ -102,7 +102,7 @@ super + space
 
 # Kde-connect|rofi
 super + p
-  ~/scripts/kdeconnect-rofi
+      ~/scripts/kdeconnect-rofi
 
 # Reiniciar sxhdk 
 super + shift + r
