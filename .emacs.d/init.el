@@ -13,6 +13,8 @@
 ; CONFIGURACIONES GENERALES
 ;============================
 
+
+
 (defun my-frame-config (&optional frame)
   (with-selected-frame (or frame (selected-frame))
     ;==== Telephone line ====
@@ -30,12 +32,20 @@ telephone-line-secondary-left-separator 'telephone-line-abs-hollow-left
 telephone-line-primary-right-separator 'telephone-line-abs-right
 telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
 (setq telephone-line-height 24)
-(telephone-line-mode 1)))
+(telephone-line-mode 1)
 
+
+(use-package nord-theme
+  :ensure t
+  :config
+  (setq nord-region-highlight "frost")
+  (setq nord-comment-brightness 15)
+  :init
+  (load-theme 'nord t))
+
+))
 (add-hook 'after-make-frame-functions 'my-frame-config)
 (add-hook 'after-init-hook 'my-frame-config)
-
-
 
 ;; Responder y/n
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -289,15 +299,48 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
 )
 (global-set-key (kbd "C-x g") 'magit)
 
-;;==== Nord theme ====
-(use-package nord-theme
-  :ensure t
+;;==== Pdf-tools ====
+(use-package pdf-tools
+  :pin manual
   :config
-  (setq nord-region-highlight "frost")
-  (setq nord-comment-brightness 15)
-  :init
-  (load-theme 'nord t)
-)
+  (pdf-tools-install)
+  (setq-default pdf-view-display-size 'fit-page)
+  (setq pdf-annot-activate-created-annotations t))
+
+  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
+  (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
+  (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
+  (define-key pdf-view-mode-map (kbd "l") 'image-forward-hscroll)
+  (define-key pdf-view-mode-map (kbd "h") 'image-backward-hscroll)
+  (define-key pdf-view-mode-map (kbd "J") 'pdf-view-next-page)
+  (define-key pdf-view-mode-map (kbd "K") 'pdf-view-previous-page)
+  (define-key pdf-view-mode-map (kbd "u") 'pdf-view-scroll-down-or-previous-page)
+  (define-key pdf-view-mode-map (kbd "d") 'pdf-view-scroll-up-or-next-page)
+  (define-key pdf-view-mode-map (kbd "0") 'image-bol)
+  (define-key pdf-view-mode-map (kbd "$") 'image-eol)
+         ;; Scale/Fit
+  (define-key pdf-view-mode-map (kbd "W") 'pdf-view-fit-width-to-window)
+  (define-key pdf-view-mode-map (kbd "H") 'pdf-view-fit-height-to-window)
+  (define-key pdf-view-mode-map (kbd "P") 'pdf-view-fit-page-to-window)
+  (define-key pdf-view-mode-map (kbd "m") 'pdf-view-set-slice-using-mouse)
+  (define-key pdf-view-mode-map (kbd "b") 'pdf-view-set-slice-from-bounding-box)
+  (define-key pdf-view-mode-map (kbd "R") 'pdf-view-reset-slice)
+  (define-key pdf-view-mode-map (kbd "zr") 'pdf-view-scale-reset)
+        ;; Annotations
+  (define-key pdf-view-mode-map (kbd "aD") 'pdf-annot-delete)
+  (define-key pdf-view-mode-map (kbd "a t") 'pdf-annot-attachment-dired); :exit t)
+  (define-key pdf-view-mode-map (kbd "al") 'pdf-annot-list-annotations); :exit t)
+  (define-key pdf-view-mode-map (kbd "am") 'pdf-annot-add-markup-annotation)
+        ;; Actions
+  (define-key pdf-view-mode-map (kbd "s") 'pdf-occur); :exit t)
+  (define-key pdf-view-mode-map (kbd "O") 'pdf-outline); :exit t)
+  (define-key pdf-view-mode-map (kbd "p") 'pdf-misc-print-document); :exit t)
+  (define-key pdf-view-mode-map (kbd "o") 'pdf-links-action-perform); :exit t)
+  (define-key pdf-view-mode-map (kbd "r") 'pdf-view-revert-buffer)
+  (define-key pdf-view-mode-map (kbd "t") 'pdf-annot-attachment-dired); :exit t)
+  (define-key pdf-view-mode-map (kbd "n") 'pdf-view-midnight-minor-mode)
+;  (define-key pdf-view-mode-map (kbd "q") 'nil :exit t)
+
 
 ;;====================================
 ;; CONFIGURACIONES DE ORG-MODE
@@ -386,6 +429,9 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
@@ -452,7 +498,7 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
      ("\\.pdf\\'" . "zathura %s"))))
  '(package-selected-packages
    (quote
-    (powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes nov evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
+    (pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
