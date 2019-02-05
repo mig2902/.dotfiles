@@ -4,7 +4,7 @@
 [[file:screenshot.png]]
 Este repositorio es un respaldo para los archivos de configuración de los programas que más uso. Cualquiera puede descargar, utilizar, clonar, etc. este repositorio de acuerdo a la licencia MIT.
 
-** Uso de GNU/Stow
+* Uso de GNU/Stow
 Para administrar mis /dotfiles/ uso *GNU/Stow*, un programa que permite crear enlaces simbólicos fácilmente a la ruta necesaria. La manera en que lo uso, básicamente, es la siguiente:
 
 1. En ~$HOME/Documentos~ tengo una carpeta llamada ~.dotfiles~.
@@ -14,3 +14,45 @@ Para administrar mis /dotfiles/ uso *GNU/Stow*, un programa que permite crear en
 Este método hace mucho más sencillo crear los enlaces simbólicos en lugar de usar ~ln~ y permite restaurar todos mis archivos de configuración a una gran velocidad, sin necesidad de diseñar scripts o copiar los enlaces manualmente.
  
 
+* Programas que utilizo
+
+** Editores de texto
+- *Emacs:* Poderoso editor de texto, interprete de elisp y más.
+- *Libre Office:* Paquetería de oficina.
+- *Mousepad:* Por si emacs no está disponible.
+
+** Gestor de archivos
+- *Ranger:* Gestor de archivos TUI escrito en python. Soporta previsualización de imágenes (a veces)
+- *Thunar:* Gestor de archivos gráfico de XFCE.
+--------------------------------------------
+- *nnn:* Gestor de archivos TUI minimalista.
+- *lf:* Gestor de archivos, clon de ranger, escrito en go. Más rápido, posee características extra y carece de otras.
+
+** Multimedia
+- *Mplayer:* reproductor de videos. Si se desea GUI se puede usar SMplayer.
+- *sxiv:* Visor de imágenes suckless.
+- *Clementine:* Reproductor de música escrito en Qt.
+- *Spotify:* Lo pago, lo uso.
+- *Playerctl:* Herramienta CLI que permite mandar órdenes a reproductores de música y video. Necesario para atajos de teclado en i3 y bspwm.
+- *pamixer:* Similar a playerctl, pero para el volumen.
+
+** Internet
+- *Firefox:* Navegador de internet.
+- *Grive2:* Cliente de gmail con syncronización de 2 vías automática.
+
+** Otros
+- *KiTTY:* Emulador de terminal rápido y completo, incluye un visor de imágenes integrado.
+- *f.lux:* Automáticamente aplica un filtro de luz azul. Alternativa a redshift.
+- *kdeconnect:* Conecta el celular con la computadora.
+- *rofi:* Lanzador de aplicaciones. Soporta scripts y sintaxis de dmenu.
+- *Polybar:* Panel personalizable.
+- *flameshot:* Aplicación para tomar capturas de pantalla, incluye herramientas para editar.
+- *Nitrogen:* Aplicación para seleccionar fondo de pantalla.
+- *compton:* Compositor de ventanas.
+- *gcolor2:* Selector de colores.
+- *gucharmap:* Selector de caracteres en fuentes.
+- *Fuente Fantasque Sans Mono:* Mi fuente favorita.
+- *htop:* Gestor de tareas.
+- *clipit:* Gestor de portapapeles.
+- *Xarchiver:* Comprimir y descomprimir archivos. Depende de unzip/zip/unrar/rar. Tiene extensión para thunar.
+- *tex-live:* De ser posible, instalar la versión "core".
