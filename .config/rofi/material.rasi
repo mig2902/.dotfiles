@@ -39,7 +39,7 @@
 window {
 	transparency: "real";
 	  fullscreen: true; 
-	  background-color: #2F3745AA; /*base00 + CC (80% opacity)*/
+	  background-color: #2F3745CC; /*base00 + CC (80% opacity)*/
 	  position: center;
 	  border: 2px;
 	  border-color: #5C7DA7 ;
