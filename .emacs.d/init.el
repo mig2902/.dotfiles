@@ -69,12 +69,12 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
 (global-set-key (kbd "M-m") 'menu-bar-mode) ; M-m hace aparecer el menú
 
 ;; IDO
-(setq ido-enable-flex-matching nil)
-(setq ido-create-new-buffer 'always)
-(setq ido-everywhere t)
-(ido-mode 1)
-(global-set-key (kbd "C-x b") 'ido-switch-buffer)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+;(setq ido-enable-flex-matching nil)
+;(setq ido-create-new-buffer 'always)
+;(setq ido-everywhere t)
+;(ido-mode 1)
+;(global-set-key (kbd "C-x b") 'ido-switch-buffer)
+;(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Abrir configuración con C-c e
 (defun config-visit ()
@@ -167,6 +167,20 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
   :init
   (which-key-mode))
 
+;; ==== Ivy ====
+(use-package ivy
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t
+            ivy-count-format "%d/%d "))
+
+;; ==== Counsel ====
+(use-package counsel
+  :config
+  (counsel-mode 1)
+  :bind
+  ("M-x" . counsel-M-x)
+  )
 
 ;;==== elfeed ====
 (use-package elfeed
@@ -180,17 +194,17 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
 )
 
 ;;==== IDO-vertical =====
-(use-package ido-vertical-mode
-    :ensure
-    :init
-    (ido-vertical-mode 1))
+;(use-package ido-vertical-mode
+;    :ensure
+;    :init
+;    (ido-vertical-mode 1))
 
 ;;==== Smex ====
-(use-package smex
-   :ensure t
-   :init (smex-initialize)
-   :bind
-   ("M-x" . smex))
+;(use-package smex
+;   :ensure t
+;   :init (smex-initialize)
+;   :bind
+;  ; ("M-x" . smex))
 
 ;;==== Avy ====
 (use-package avy
@@ -498,7 +512,7 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
      ("\\.pdf\\'" . "zathura %s"))))
  '(package-selected-packages
    (quote
-    (pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
+    (counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pdf-view-resize-factor 1.05)
  '(pos-tip-background-color "#073642")
