@@ -172,7 +172,10 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t
-            ivy-count-format "%d/%d "))
+        ivy-count-format "%d/%d ")
+  (setq ivy-re-builders-alist '((swiper . ivy--regex-plus)
+                                (t . ivy--regex-fuzzy))))
+
 
 ;; ==== Counsel ====
 (use-package counsel
@@ -181,6 +184,9 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
   :bind
   ("M-x" . counsel-M-x)
   )
+(define-key ivy-minibuffer-map (kbd "C-j") #'ivy-immediate-done)
+(define-key ivy-minibuffer-map (kbd "RET") #'ivy-alt-done)
+
 
 ;;==== elfeed ====
 (use-package elfeed

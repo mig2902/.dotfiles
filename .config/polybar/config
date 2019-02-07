@@ -21,6 +21,9 @@
 ; CONFIGURACIONES GLOBALES
 ;============================
 
+;muestra la fecha en español
+locale = es_MX.UTF-8
+
 [colors]
 ; Declaración de colores
 
@@ -45,7 +48,7 @@ height = 24 ;ancho
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
-fixed-center = false ;no tengo idea
+fixed-center = true ;no tengo idea
 enable-ipc = true
 
 ;fondo del panel
@@ -57,7 +60,7 @@ line-size = 2
 line-color = #f00
 
 ;separación respecto a la parte superior de la pantalla
-border-size = 1
+border-size = 
 border-color = #FFFFFF ;los primeros dos números indican el canal alfa
 
 ;separación de la izquierda y derecha
@@ -79,8 +82,6 @@ font-3 = Weather Icons:style=Regular:size=10;1
 
 ;=========================================
 
-;muestra la fecha en español
-locale = es_MX.UTF-8
 
 ;========================
 ; ORDEN DE LOS MÓDULOS
@@ -99,7 +100,7 @@ tray-background = #bf6a87
 ;no sepo
 ;wm-restack = bspwm
 ;wm-restack = i3
-;override-redirect = true
+override-redirect = true
 
 ;cosas para bspwn que no se
 ;scroll-up = bspwm-desknext

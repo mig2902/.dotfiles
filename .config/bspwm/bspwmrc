@@ -40,7 +40,7 @@ nm-applet &
 xfce4-power-manager &
 pamac-tray &
 clipit &
-conky -c ~/conkys/shortcuts_i3 &
+#conky -c ~/conkys/shortcuts_i3 &
 conky -c ~/conkys/cpu-ram &
 conky -c ~/conkys/pie/pie_clock &
 xautolock -locker i3lock-fancy -f Fantasque-Sans-Mono-Regular -t Contraseña, mode "default" &
