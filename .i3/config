@@ -90,7 +90,7 @@ bindsym $mod+Shift+F3 exec gksu thunar
 bindsym $mod+Shift+f exec gksu thunar
 bindsym $mod+F4 exec htop
 bindsym $mod+F5 exec spotify  
-bindsym $mod+t exec emacsclient -c
+bindsym $mod+e exec emacsclient -c
 bindsym $mod+Shift+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton.conf 
 bindsym Print exec flameshot gui -p ~/Imágenes/screenshots 
@@ -116,7 +116,7 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id compton -b --config ~/.i3/compton.conf
+exec --no-startup-id compton -b --config ~/.config/compton.conf
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -133,7 +133,7 @@ exec --no-startup-id xautolock -locker i3lock-fancy -f Fantasque-Sans-Mono-Regul
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id emacs --fg-daemon
-exec_always --no-startup-id ~/.i3/polybar/polybar_launch.sh
+exec_always --no-startup-id ~/.config/polybar/polybar_launch.sh
 exec --no-startup-id fluxgui
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id indicator-kdeconnect
@@ -189,7 +189,7 @@ bindsym $mod+F11 fullscreen toggle
 # Cambiar dispsición del contenedor
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed 
-bindsym $mod+e layout toggle split 
+bindsym $mod+t layout toggle split 
 
 # Activar/Descativar modo flotante
 bindsym $mod+Shift+space floating toggle

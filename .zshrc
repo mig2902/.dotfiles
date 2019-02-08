@@ -118,7 +118,7 @@ alias DRIVE="~/scripts./grive-sync.sh"
 alias emc="emacsclient -c"
 alias lolban="~/scripts/lolban.sh"
 
-neofetch
+neofetch | lolcat
 
 PATH="$HOME/scripts:$PATH"
 export PATH

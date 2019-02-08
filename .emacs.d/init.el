@@ -213,10 +213,10 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
 ;  ; ("M-x" . smex))
 
 ;;==== Avy ====
-(use-package avy
-  :ensure t
-  :bind
-  ("M-s" . avy-goto-char))
+;(use-pakage avy
+;  :ensure t
+;  :bind
+;  ("M-s" . avy-goto-char))
 
 ;;==== Rainbow ====
 (use-package rainbow-mode
@@ -236,10 +236,10 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
   (dashboard-setup-startup-hook)
   (setq dashboard-items '((recents . 5)
 		      (bookmarks . 5)
-		      (projects . 5))))
+		      (projects . 5)))
   (setq dashboard-startup-banner 'logo)
   (setq dashboard-banner-logo-title "Inserte frase edgy aquí")      (add-to-list 'dashboard-items '(agenda) t)
-  (setq show-week-agenda-p t)
+  (setq show-week-agenda-p t))
 
 ;;==== Ox-reveal =====
 (require 'ox-reveal)
@@ -289,6 +289,7 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
 (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
 (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
 (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+(define-key evil-motion-state-map (kbd "C-u") 'evil-scroll-up)
 ;; Make horizontal movement cross lines
 (setq-default evil-cross-lines t))
 

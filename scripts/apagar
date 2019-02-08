@@ -1,6 +1,6 @@
 #!/bin/sh
 
-var=$(echo -e "Apagar\nBloquear\nReiniciar\nSalir\nCancelar" | rofi -dmenu -theme material -eh 2 -i -p "¿Desea salir?") 
+var=$(echo -e "Apagar\nBloquear\nReiniciar\nCerrar sesión\nCancelar" | rofi -dmenu -theme material -eh 2 -i -p "¿Desea salir?") 
 
 if [ "$var" == 'Apagar' ]
 then
@@ -11,7 +11,7 @@ then
 elif [ "$var" == 'Reiniciar' ]
 then
     systemctl reboot
-elif [ "$var" == 'Salir' ]
+elif [ "$var" == 'Cerrar sesión' ]
 then
     bspc quit
 elif [ "$var" == 'Cancelar' ]

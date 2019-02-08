@@ -15,14 +15,9 @@
 ;   The README contains alot of information
 ;=========================================================
 
-
-
 ;============================
 ; CONFIGURACIONES GLOBALES
 ;============================
-
-;muestra la fecha en español
-locale = es_MX.UTF-8
 
 [colors]
 ; Declaración de colores
@@ -71,6 +66,8 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
+;muestra la fecha en español
+locale = es_MX.UTF-8
 ;========================================
 ; FUENTES
 ;========================================
@@ -100,7 +97,7 @@ tray-background = #bf6a87
 ;no sepo
 ;wm-restack = bspwm
 ;wm-restack = i3
-override-redirect = true
+;override-redirect = true
 
 ;cosas para bspwn que no se
 ;scroll-up = bspwm-desknext
@@ -364,8 +361,8 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date ="%b %e, "
-date-alt = "%A %e de %B de %Y, "
+date ="%b%e,"
+date-alt = "%A%e de %B de %Y,"
 
 time = %H:%M
 time-alt = %H:%M:%S
