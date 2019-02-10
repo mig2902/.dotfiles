@@ -321,46 +321,46 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
 (global-set-key (kbd "C-x g") 'magit)
 
 ;;==== Pdf-tools ====
-(use-package pdf-tools
-  :pin manual
-  :config
-  (pdf-tools-install)
-  (setq-default pdf-view-display-size 'fit-page)
-  (setq pdf-annot-activate-created-annotations t))
-
-  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
-  (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
-  (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
-  (define-key pdf-view-mode-map (kbd "l") 'image-forward-hscroll)
-  (define-key pdf-view-mode-map (kbd "h") 'image-backward-hscroll)
-  (define-key pdf-view-mode-map (kbd "J") 'pdf-view-next-page)
-  (define-key pdf-view-mode-map (kbd "K") 'pdf-view-previous-page)
-  (define-key pdf-view-mode-map (kbd "u") 'pdf-view-scroll-down-or-previous-page)
-  (define-key pdf-view-mode-map (kbd "d") 'pdf-view-scroll-up-or-next-page)
-  (define-key pdf-view-mode-map (kbd "0") 'image-bol)
-  (define-key pdf-view-mode-map (kbd "$") 'image-eol)
-         ;; Scale/Fit
-  (define-key pdf-view-mode-map (kbd "W") 'pdf-view-fit-width-to-window)
-  (define-key pdf-view-mode-map (kbd "H") 'pdf-view-fit-height-to-window)
-  (define-key pdf-view-mode-map (kbd "P") 'pdf-view-fit-page-to-window)
-  (define-key pdf-view-mode-map (kbd "m") 'pdf-view-set-slice-using-mouse)
-  (define-key pdf-view-mode-map (kbd "b") 'pdf-view-set-slice-from-bounding-box)
-  (define-key pdf-view-mode-map (kbd "R") 'pdf-view-reset-slice)
-  (define-key pdf-view-mode-map (kbd "zr") 'pdf-view-scale-reset)
-        ;; Annotations
-  (define-key pdf-view-mode-map (kbd "aD") 'pdf-annot-delete)
-  (define-key pdf-view-mode-map (kbd "a t") 'pdf-annot-attachment-dired); :exit t)
-  (define-key pdf-view-mode-map (kbd "al") 'pdf-annot-list-annotations); :exit t)
-  (define-key pdf-view-mode-map (kbd "am") 'pdf-annot-add-markup-annotation)
-        ;; Actions
-  (define-key pdf-view-mode-map (kbd "s") 'pdf-occur); :exit t)
-  (define-key pdf-view-mode-map (kbd "O") 'pdf-outline); :exit t)
-  (define-key pdf-view-mode-map (kbd "p") 'pdf-misc-print-document); :exit t)
-  (define-key pdf-view-mode-map (kbd "o") 'pdf-links-action-perform); :exit t)
-  (define-key pdf-view-mode-map (kbd "r") 'pdf-view-revert-buffer)
-  (define-key pdf-view-mode-map (kbd "t") 'pdf-annot-attachment-dired); :exit t)
-  (define-key pdf-view-mode-map (kbd "n") 'pdf-view-midnight-minor-mode)
-;  (define-key pdf-view-mode-map (kbd "q") 'nil :exit t)
+;(use-package pdf-tools
+;  :pin manual
+;  :config
+;  ;(pdf-tools-install)
+;  (setq-default pdf-view-display-size 'fit-page)
+;  (setq pdf-annot-activate-created-annotations t))
+;
+;  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
+;  (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
+;  (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
+;  (define-key pdf-view-mode-map (kbd "l") 'image-forward-hscroll)
+;  (define-key pdf-view-mode-map (kbd "h") 'image-backward-hscroll)
+;  (define-key pdf-view-mode-map (kbd "J") 'pdf-view-next-page)
+;  (define-key pdf-view-mode-map (kbd "K") 'pdf-view-previous-page)
+;  (define-key pdf-view-mode-map (kbd "u") 'pdf-view-scroll-down-or-previous-page)
+;  (define-key pdf-view-mode-map (kbd "d") 'pdf-view-scroll-up-or-next-page)
+;  (define-key pdf-view-mode-map (kbd "0") 'image-bol)
+;  (define-key pdf-view-mode-map (kbd "$") 'image-eol)
+;         ;; Scale/Fit
+;  (define-key pdf-view-mode-map (kbd "W") 'pdf-view-fit-width-to-window)
+;  (define-key pdf-view-mode-map (kbd "H") 'pdf-view-fit-height-to-window)
+;  (define-key pdf-view-mode-map (kbd "P") 'pdf-view-fit-page-to-window)
+;  (define-key pdf-view-mode-map (kbd "m") 'pdf-view-set-slice-using-mouse)
+;  (define-key pdf-view-mode-map (kbd "b") 'pdf-view-set-slice-from-bounding-box)
+;  (define-key pdf-view-mode-map (kbd "R") 'pdf-view-reset-slice)
+;  (define-key pdf-view-mode-map (kbd "zr") 'pdf-view-scale-reset)
+;        ;; Annotations
+;  (define-key pdf-view-mode-map (kbd "aD") 'pdf-annot-delete)
+;  (define-key pdf-view-mode-map (kbd "a t") 'pdf-annot-attachment-dired); :exit t)
+;  (define-key pdf-view-mode-map (kbd "al") 'pdf-annot-list-annotations); :exit t)
+;  (define-key pdf-view-mode-map (kbd "am") 'pdf-annot-add-markup-annotation)
+;        ;; Actions
+;  (define-key pdf-view-mode-map (kbd "s") 'pdf-occur); :exit t)
+;  (define-key pdf-view-mode-map (kbd "O") 'pdf-outline); :exit t)
+;  (define-key pdf-view-mode-map (kbd "p") 'pdf-misc-print-document); :exit t)
+;  (define-key pdf-view-mode-map (kbd "o") 'pdf-links-action-perform); :exit t)
+;  (define-key pdf-view-mode-map (kbd "r") 'pdf-view-revert-buffer)
+;  (define-key pdf-view-mode-map (kbd "t") 'pdf-annot-attachment-dired); :exit t)
+;  (define-key pdf-view-mode-map (kbd "n") 'pdf-view-midnight-minor-mode)
+;;  (define-key pdf-view-mode-map (kbd "q") 'nil :exit t)
 
 
 ;;====================================
@@ -471,6 +471,7 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
    (quote
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "946e871c780b159c4bb9f580537e5d2f7dba1411143194447604ecbaf01bd90c" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "f66ffeadda7b52d40c8d698967ae9e9836f54324445af95610d257fa5e3e1e21" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a94f1a015878c5f00afab321e4fef124b2fc3b823c8ddd89d360d710fc2bddfc" "0cd56f8cd78d12fc6ead32915e1c4963ba2039890700458c13e12038ec40f6f5" "de0b7245463d92cba3362ec9fe0142f54d2bf929f971a8cdf33c0bf995250bcf" "251348dcb797a6ea63bbfe3be4951728e085ac08eee83def071e4d2e3211acc3" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "721bb3cb432bb6be7c58be27d583814e9c56806c06b4077797074b009f322509" "b59d7adea7873d58160d368d42828e7ac670340f11f36f67fa8071dbf957236a" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "bf390ecb203806cbe351b966a88fc3036f3ff68cd2547db6ee3676e87327b311" "0c32e4f0789f567a560be625f239ee9ec651e524e46a4708eb4aba3b9cdc89c5" "1e9001d2f6ffb095eafd9514b4d5974b720b275143fbc89ea046495a99c940b0" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
  '(delete-selection-mode nil)
+ '(display-line-numbers (quote visual))
  '(elfeed-feeds
    (quote
     ("http://www.xatakaciencia.com/index.xml" "http://www.muyinteresante.com.mx/home.rss/" "http://www.theverge.com/rss/full.xml" "http://www.malavida.com/rss/nov-all/es/0/winlinmac_ultima_act.xml" "http://feeds.feedburner.com/Malavida" "http://metalportuculo.com/feed" "http://www.elportaldelmetal.com/rss.xml" "http://www.metalsucks.net/feed/rss/" "http://feeds2.feedburner.com/metalinjection" "http://colectivopericu.wordpress.com/feed/" "http://www.bcsnoticias.mx/feed/" "https://manjaro.org/feed.xml" "https://kernelpanicblog.wordpress.com/feed/" "https://mantisfistjabn.wordpress.com/feed/" "http://feeds.feedburner.com/ElBlogDeEnriqueDans" "http://www.xatakandroid.com/index.xml" "http://es.engadget.com/rss.xml" "http://www.xatakamovil.com/atom.xml" "http://www.genbeta.com/index.xml" "http://www.elandroidelibre.com/feed/" "http://feeds.weblogssl.com/xataka2" "http://www.jornada.unam.mx/rss/edicion.xml" "http://www.eluniversal.com.mx/rss/mexico.xml" "http://news.google.com/news?hl=en&gl=us&q=NoticiasM%C3%A9xico&um=1&ie=UTF-8&output=rss" "http://feeds.feedburner.com/proceso" "http://eldeforma.com/feed/" "http://www.reforma.com/rss/portada.xml" "http://www.elpais.com/rss/feed.html?feedId=1022" "http://www.teamfortress.com/rss.xml" "http://feeds.ign.com/ign/games-all" "http://www.vandal.net/cgi-bin/xml.cgi" "http://www.eurogamer.es/rss/eurogamer_frontpage_feed.rss" "http://www.3djuegos.com/universo/rss/rss.php?plats=1-2-3-4-5-6-7&tipos=noticia-analisis-avance-video-imagenes-demo&fotos=no&limit=20" "https://blog.xfce.org/feed")))
@@ -519,7 +520,7 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
      ("\\.pdf\\'" . "zathura %s"))))
  '(package-selected-packages
    (quote
-    (counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
+    (lua-mode counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pdf-view-resize-factor 1.05)
  '(pos-tip-background-color "#073642")
@@ -569,6 +570,7 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
  '(cursor ((t nil)))
  '(highlight ((t (:background "#85BBCA" :foreground "#e1e1e0"))))
  '(hl-line ((t (:inherit nil :background "#404451"))))
+ '(line-number-current-line ((t (:inherit \#D8DEE9))))
  '(mode-line ((t (:foreground "light gray"))))
  '(rainbow-delimiters-depth-1-face ((t (:inherit rainbow-delimiters-base-face :foreground "gray45"))))
  '(rainbow-delimiters-depth-2-face ((t (:inherit rainbow-delimiters-base-face :foreground "dark violet"))))
