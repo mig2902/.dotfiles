@@ -5,7 +5,7 @@ name=$(kdeconnect-cli -a --name-only)
 #bat=$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$id org.kde.kdeconnect.device.battery.charge)
 if [ "$id" != "0" ]
 then
-menu=$(echo -e "Enviar\nEncontrar\nPing\nSMS" | rofi -dmenu -width 15 -lines 5 -theme material -theme-str '#window { fullscreen: false; } #mainbox { padding: 5px 5; spacing: 0px; } #listview { margin: 0 5px 0 5px; }' -location 3 -i -p "$name")
+menu=$(echo -e "Enviar\nEncontrar\nPing\nSMS" | rofi -dmenu -width 15 -lines 5 -theme material -theme-str '#mainbox { padding: -20px; } #listview { margin: 0 0px 0 0px; } #window { location: north east; anchor: north east; height: 28%; width: 250; }' -i -p "$name")
 
 
 

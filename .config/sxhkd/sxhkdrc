@@ -42,6 +42,7 @@ super + F4
 #matar compton
 super + o
      pkill compton 
+
 #revivir compton
 super + shift + o
      compton -b --config ~/.config/compton.conf
@@ -86,7 +87,13 @@ super + Return
 
 # Lanzador de aplicaciones
 super + d
-	rofi -show drun -theme material -eh 2 -lines 5 -show-icons -icon-theme Flat-remix Dark
+	rofi -modi "window,run,drun" -show drun -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
+
+super + r
+	rofi -modi "window,run,drun" -show run -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
+
+alt + Tab
+	rofi -modi "window,run,drun" -show window -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
 
 # Montar usb
 super + u
