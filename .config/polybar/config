@@ -23,7 +23,8 @@
 ; Declaración de colores
 
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #80121E25
+;background =
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -47,7 +48,7 @@ fixed-center = true ;no tengo idea
 enable-ipc = true
 
 ;fondo del panel
-background =
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 ;linea que aparece cuando se activa la opción underline
@@ -85,15 +86,15 @@ font-3 = Weather Icons:style=Regular:size=10;1
 ;========================
 
 ;posición de los módulos
-modules-left = i3 bspwm sep-i3
+modules-left =  i3 bspwm
 modules-center = 
-modules-right = sep-spo spotify sep-vol pulseaudio sep-kde kde sep-date date sep-tray
+modules-right = spotify pulseaudio kde date 
 
 ;posición de la bandeja de notificaciones
 tray-position = right
-tray-padding = 2
+tray-padding = 1
 ;tray-background = #bf6a87
-tray-background = #bf6a87
+tray-background =
 ;no sepo
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -161,9 +162,9 @@ type = internal/bspwm
 
 ws-icon-0 = I;
 ws-icon-1 = II;
-ws-icon-2 = III;
+ws-icon-2 = III;
 ws-icon-3 = IV;
-ws-icon-4 = V;
+ws-icon-4 = V;
 ws-icon-5 = VI;
 ws-icon-6 = VII;
 ws-icon-7 = VIII;
@@ -172,23 +173,23 @@ format = <label-state> <label-mode>
 
 label-focused = %icon%
 label-focused-background = 
-label-focused-underline= #E2C487
+label-focused-underline= #005688
 
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-occupied = %icon%
-label-occupied-padding = 2
+label-occupied-padding = 1
 
 label-urgent = %icon%!
 label-urgent-background = 
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 label-empty = %icon%
 label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
+label-empty-padding = 1
 
 
-format-background= #5C7DA7
+format-background= ${colors.background}
 ; Separator in between workspaces
 ; label-separator = |
 ;===============================================
@@ -361,18 +362,18 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date ="%b%e,"
-date-alt = "%A%e de %B de %Y,"
+date =" %b %e,"
+date-alt = " %A %e de %B de %Y,"
 
-time = %H:%M
-time-alt = %H:%M:%S
+time = "%H:%M "
+time-alt = "%H:%M:%S "
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #0a6cf5
 
 label = %date% %time%
-format-background = #6A7792
+format-background = ${colors.background}
 label-foreground = ${root.foreground}
 
 
@@ -384,7 +385,7 @@ label-foreground = ${root.foreground}
 ;muestra el volumen
 type = internal/pulseaudio
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = " <ramp-volume> <label-volume> " 
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 ;format-volume-underline = #F7923A
@@ -413,7 +414,7 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-format-volume-background = #4B5568
+format-volume-background = ${colors.background}
 click-right = exec pavucontrol & 
 ;========================================
 
@@ -549,10 +550,10 @@ menu-2-1-exec = menu-open-0
 type = custom/script
 interval = 1
 format-prefix = " " 
-format = <label>
+format = "<label> "
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
-;format-underline = #1db954
-format-background =  #99B898
+format-underline = #99B898
+format-background =  
 format-foreground = #FFFFFF
 ;======================================
 
@@ -565,6 +566,32 @@ label-font = 4
 
 
 ;==============================================
+
+;======== kdeconnect ==========================
+[module/kde]
+type = custom/script
+format-prefix = "  "
+label = "%output%% "
+exec = ~/.config/polybar/scripts/kde-bat
+interval = 300
+format-background = 
+click-left = ~/scripts/kdeconnect-rofi
+
+;=============================================
+
+[module/cal]
+type = custom/script
+exec = date 
+interval = 1
+click-left = polybar-msg cal ola
+
+[module/caleeeee]
+type = custom/ipc
+hook-0=echo olas
+hook-1=echo adios
+initial=1
+click-left = polybar-msg hook cal 2
+
 
 ;============ powerline separador ===========
 [module/separador]
@@ -638,17 +665,8 @@ content-background =
 ;date=
 ;tray=  #CC527A 
 
-[module/cal]
-type = custom/script
-exec = date &
-interval = 1
-click-left = echo left
 
-
-[module/kde]
-type = custom/script
-format-prefix = " "
-label = %output%%
-exec = ~/.config/polybar/scripts/kde-bat
-interval = 300
-format-background = #8C9FC5
+[module/menu]
+type = custom/text
+content = " "
+click-left = rofi -show drun -location 1 -theme rofi -eh 2 -lines 5 -show-icons -icon-theme Flat-remix Dark
