@@ -20,7 +20,6 @@ super + F2
       firefox
 
 # Administrador de archivos
-
 super + f
   kitty -e ranger 
 
@@ -67,10 +66,15 @@ XF86AudioPrev
 XF86AudioStop
 	playerctl stop
 
+# Screenshot
 Print
 	flameshot gui -p ~/Imágenes/screenshots 
+
+#screenshot espera 2000s
 super + shift + Print
       flameshot gui -d 2000 -p ~/Imágenes/screenshots
+
+# Screenshot todo el escritorio, portapapeles
 super + Print
        flameshot full -c
 
@@ -89,9 +93,11 @@ super + Return
 super + d
 	rofi -modi "window,run,drun" -show drun -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
 
+# Rofi-run
 super + r
 	rofi -modi "window,run,drun" -show run -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
 
+# Ventanas abiertas
 alt + Tab
 	rofi -modi "window,run,drun" -show window -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
 

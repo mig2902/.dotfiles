@@ -12,10 +12,10 @@ configuration {
 }
 
 * {
-	background-color:            rgb(18, 30, 37);
+	background-color:            rgba(18, 30, 37, 0.5);
 	text-color:                  #d3d7cf;
-	selbg:                       rgb(0, 86, 136);
-	actbg:                       rgb(22, 37, 46);
+	selbg:                       #005688;
+	actbg:                       rgba(22, 37, 46, 0.5);
 	urgbg:                       #e53935;
 	winbg:			     #26c6da;
 
@@ -53,6 +53,7 @@ window {
 	margin-right:	 60px;
 	orientation: horizontal;
 	children:	 [mainbox];
+	background-color: @background-color;
 }
 
 mainbox {
@@ -61,9 +62,12 @@ mainbox {
 	width:200px;
 	children: [ inputbar, listview, sidebar ];
 	expand: true;
+	background-color: transparent;
 }
 
-button { padding: 5px 2px; }
+button { padding: 5px 2px; 
+     background-color: transparent;
+     }
 
 button selected {
 	background-color: @active-background;
@@ -72,6 +76,7 @@ button selected {
 
 inputbar {
      children: [ entry ];
+     background-color: transparent;
 }
 
 textbox-prompt-colon {                                                
@@ -84,24 +89,29 @@ listview {
 	spacing: 0em;
 	dynamic: false;
 	cycle:   true;
+	background-color: transparent;
+}
+
+sidebar {
+	background-color: transparent;
 }
 
 element { 
 	padding: 10px;
-	border:  0 0 0 5px solid;
+	border:  0 0 0 5px ;
 }
 
 entry {
 	expand:         true;
 	text-color:     @normal-foreground;
-	background-color: rgb(25, 41, 51);
+	background-color: rgba(25, 41, 51, 0.5);
 	vertical-align: 1;
 	padding:        12px;
 	font:            "Fantasque Sans Mono 13";
 }
 
 element normal.normal {
-	background-color: @normal-background;
+	background-color: transparent;
 	text-color:       @normal-foreground;
 }
 
@@ -111,7 +121,7 @@ element normal.urgent {
 }
 
 element normal.active {
-	background-color: @active-background;
+	background-color: transparent;
 	text-color:       @active-foreground;
 }
 
@@ -134,7 +144,7 @@ element selected.active {
 }
 
 element alternate.normal {
-	background-color: @normal-background;
+	background-color: transparent;
 	text-color:       @normal-foreground;
 }
 

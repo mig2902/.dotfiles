@@ -23,7 +23,7 @@
 ; Declaración de colores
 
 ;background = ${xrdb:color0:#222}
-background = #80121E25
+background = #121E25
 ;background =
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
@@ -173,7 +173,7 @@ format = <label-state> <label-mode>
 
 label-focused = %icon%
 label-focused-background = 
-label-focused-underline= #005688
+label-focused-underline= #FFFFFF
 
 label-focused-padding = 1
 
