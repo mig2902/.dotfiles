@@ -18,6 +18,7 @@ bspc rule -a Gimp desktop='^6' follow=on
 bspc rule -a Thunar desktop='^5' follow=on
 bspc rule -a Screenkey manage=off
 bspc rule -a Firefox desktop='^2' follow=on
+bspc rule -a Chromium desktop='^2' follow=on
 bspc rule -a Spotify desktop='^8'
 bspc rule -a libreoffice desktop='^4' follow=on state=tiled
 bspc rule -a Lxappareance state=floating
@@ -44,7 +45,7 @@ clipit &
 conky -c ~/conkys/cpu-ram &
 conky -c ~/conkys/pie/pie_clock &
 xautolock -locker i3lock-fancy -f Fantasque-Sans-Mono-Regular -t Contraseña, mode "default" &
-emacs --fg-daemon &
+emacs --daemon &
 ~/.config/polybar/polybar_launch.sh &
 fluxgui &
 /usr/lib/kdeconnectd &

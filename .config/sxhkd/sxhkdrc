@@ -15,9 +15,13 @@
 # Accesos directos
 ########################
 
-# Firefox
+## Firefox
+#super + F2
+#      firefox
+
+# chromium
 super + F2
-      firefox
+      chromium
 
 # Administrador de archivos
 super + f
