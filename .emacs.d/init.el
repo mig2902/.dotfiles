@@ -423,7 +423,7 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
        '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
 
 ;;==== Exportar en beamer ====
-'(org-beamer-mode 1)
+(org-beamer-mode)
 
 ;;==== Formatos extra para latex ====
 (add-to-list 'org-latex-classes

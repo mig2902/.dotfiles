@@ -113,6 +113,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+PATH="$HOME/scripts:$PATH"
+export PATH
+
 alias drive="~/scripts/grive-sync.sh"
 alias DRIVE="~/scripts./grive-sync.sh"
 alias emc="emacsclient -c"
@@ -121,5 +126,3 @@ alias lolban="~/scripts/lolban.sh"
 #neofetch | lolcat
 neofetch --ascii "$(fortune-es|cowsay -W 30)" |  lolcat
 
-PATH="$HOME/scripts:$PATH"
-export PATH
