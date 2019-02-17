@@ -23,7 +23,7 @@
 ; Declaración de colores
 
 ;background = ${xrdb:color0:#222}
-background = #121E25
+background = #60121E25
 ;background =
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}

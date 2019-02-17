@@ -1,8 +1,8 @@
 conky.config = {
 	alignment = 'top_right',
 	background = true,
-	color1 = '2ECC71',
-	color2 = '#5C7DA7',
+	color1 = '#2ECC71',
+	color2 = '#005688',
 	cpu_avg_samples = 2,
 	default_color = 'FFFFFF',
 	double_buffer = true,
@@ -42,4 +42,8 @@ ${execi 10000 awk -F= '/EASE=/ {printf $2" "} /NAME/ {print $2}' /etc/lsb-releas
 
 ${goto 40}${color2}${font Bitstream Vera Sans:size=8}Uptime: ${color}${uptime_short}
 ${goto 40}${voffset 5}${color2}${font Bitstream Vera Sans:size=8}Kernel: ${color}${kernel}
+
+
+
 ]]
+
