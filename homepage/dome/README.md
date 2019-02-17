@@ -1,3 +1,3 @@
-# dome
+#DOME
 
-Startpage - Autocomplete, arrow keys, responsive.
+Versión modificada de (DOME)[https://rice.capuno.cat/Archive/NotRice/websites/startpages/dome/] por capuno.
