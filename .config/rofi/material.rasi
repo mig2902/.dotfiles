@@ -47,7 +47,7 @@ window {
 	location:	 north;
 	anchor:		 north;
 	x-offset:	 0px;
-	y-offset:	 24px;
+	y-offset:	 0px;
 	height:		 50%;
 	width:		 600px;
 	margin-right:	 60px;

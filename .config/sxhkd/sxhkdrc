@@ -20,13 +20,13 @@ super + Return
       kitty
 
 #Rofi
-super + d			#Lanzador de aplicaciones
+super + d
       rofi -modi "window,run,drun" -show drun -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark  
       
-super + r  	 		#Correr comando
+super + r
       rofi -modi "window,run,drun" -show run -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
       
-alt + Tab  	 		#Cambiar ventanas
+alt + Tab
     rofi -modi "window,run,drun" -show window -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
 
 ## Firefox
@@ -48,6 +48,8 @@ super + F5
 #Emacsclient
 super + e
       emacsclient -c
+super + shift + e
+      emacsclient -ne '(new-frame)'
 
 #htop
 super + F4
@@ -60,6 +62,34 @@ super + Shift + Print
       flameshot gui -d 2000 -p ~/Imágenes/screenshots
 super + Print	
       flameshot full -c
+
+#Audio
+XF86AudioMute
+	pamixer -t
+XF86AudioRaiseVolume
+	pamixer -i 2
+XF86AudioLowerVolume
+	pamixer -d 2
+XF86MonBrightnessUp
+	xbacklight +10
+XF86MonBrightnessDown
+	xbacklight -10
+XF86AudioPlay
+	playerctl play-pause
+XF86AudioNext
+	playerctl next
+XF86AudioPrev
+	playerctl previous
+XF86AudioStop
+	playerctl stop
+
+#matar compton
+super + o
+     pkill compton 
+
+#revivir compton
+super + shift + o
+     compton -b --config ~/.config/compton.conf
 
 # Reiniciar sxhdk 
 super + shift + r
