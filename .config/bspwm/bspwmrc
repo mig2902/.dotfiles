@@ -33,6 +33,7 @@ bspc rule -a Oblogout state=fullscreen
 bspc rule -a Zathura state=tiled
 bspc rule -a MPlayer state=floating
 bspc rule -a Sxiv state=floating
+bspc rule -a mpv state=floating
 
 # Autostart
 nitrogen --restore; sleep 1; compton -b &

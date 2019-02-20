@@ -315,6 +315,73 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
                                          "\\cite{"
                                          (mapconcat 'identity x ",")
                                          "}")) ""))))
+;; ==== mu4e ====
+; (add-to-list 'load-path "~/place/to/your/mu4e")
+(add-to-list 'load-path "/usr/bin")
+;(require 'smtpmail)
+
+; smtp
+;(setq message-send-mail-function 'smtpmail-send-it
+;      smtpmail-starttls-credentials
+;      '(("imap.gmail.com" 587 nil nil))
+;      smtpmail-default-smtp-server "imap.gmail.com"
+
+;      smtpmail-smtp-server "imap.gmail.com"
+;      smtpmail-smtp-service 587
+;      smtpmail-debug-info t)
+
+(require 'mu4e)
+
+(setq mu4e-maildir (expand-file-name "~/.email/gmail"))
+
+(setq mu4e-drafts-folder "/Drafts")
+(setq mu4e-sent-folder   "/Sent Items")
+(setq mu4e-trash-folder  "/Trash")
+;(setq message-signature-file "~/.emacs.d/.signature") ; put your signature in this file
+
+; get mail
+(setq mu4e-get-mail-command "mbsync -c ~/.emacs.d/.mbsyncrc gmail"
+      mu4e-html2text-command "w3m -T text/html"
+      mu4e-update-interval 120
+      mu4e-headers-auto-update t
+      mu4e-compose-signature-auto-include nil)
+
+(setq mu4e-maildir-shortcuts
+      '( ("/INBOX"               . ?i)
+         ("/Sent Items"   . ?s)
+         ("/Trash"       . ?t)
+         ("/Drafts"    . ?d)))
+
+;; show images
+(setq mu4e-show-images t)
+
+;; use imagemagick, if available
+(when (fboundp 'imagemagick-register-types)
+  (imagemagick-register-types))
+
+;; general emacs mail settings; used when composing e-mail
+;; the non-mu4e-* stuff is inherited from emacs/message-mode
+(setq mu4e-reply-to-address "juacq97@gmail.com"
+    user-mail-address "juacq97@gmail.com"
+    user-full-name  "Juan Adrián Castro Quintana")
+
+;; don't save message to Sent Messages, IMAP takes care of this
+; (setq mu4e-sent-messages-behavior 'delete)
+
+;; spell check
+(add-hook 'mu4e-compose-mode-hook
+        (defun my-do-compose-stuff ()
+           "My settings for message composition."
+           (set-fill-column 72)
+           (flyspell-mode)))
+
+;; Para enviar correos
+; use msmtp
+;(setq message-send-mail-function 'message-send-mail-with-sendmail)
+;(setq sendmail-program "/usr/bin/msmtp")
+;; tell msmtp to choose the SMTP server according to the from field in the outgoing email
+;(setq message-sendmail-extra-arguments '("--read-envelope-from"))
+;(setq message-sendmail-f-is-evil 't)
 
 ;;==== Magit ====
 (use-package magit
@@ -551,7 +618,7 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
      ("\\.pdf\\'" . "zathura %s"))))
  '(package-selected-packages
    (quote
-    (frames-only-mode flymd yequake noflet evil-magit lua-mode counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
+    (smtpmail-multi frames-only-mode flymd yequake noflet evil-magit lua-mode counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pdf-view-resize-factor 1.05)
  '(pos-tip-background-color "#073642")

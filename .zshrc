@@ -121,7 +121,7 @@ export PATH
 alias drive="~/scripts/grive-sync.sh"
 alias DRIVE="~/scripts./grive-sync.sh"
 alias emc="emacsclient -c"
-
+alias emt="emacsclient -t"
 #neofetch | lolcat
 neofetch --ascii "$(fortune-es|cowsay -W 30)" |  lolcat
 
