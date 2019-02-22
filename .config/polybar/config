@@ -23,7 +23,7 @@
 ; Declaración de colores
 
 ;background = ${xrdb:color0:#222}
-background = #60121E25
+background = #DE2D333F
 ;background =
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
@@ -33,6 +33,9 @@ primary = #BF616A
 secondary = #e60053
 alert = #238792
 
+[global/wm]
+margin-top = 0
+margin-bottom = 0
 ;=============================
 ; CONFIGURACIÓN DEL PANEL
 ;=============================
@@ -41,8 +44,8 @@ alert = #238792
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100% ;largo
 height = 24 ;ancho
-;offset-x = 1%
-;offset-y = 1%
+;offset-x = 2%
+;offset-y = 0.3%
 radius = 0
 fixed-center = true ;no tengo idea
 enable-ipc = true
@@ -61,7 +64,7 @@ border-color = #FFFFFF ;los primeros dos números indican el canal alfa
 
 ;separación de la izquierda y derecha
 padding-left = 0
-padding-right = 0
+padding-right = 0 
 
 ;separación entre módulos
 module-margin-left = 0
@@ -88,13 +91,15 @@ font-3 = Weather Icons:style=Regular:size=10;1
 ;posición de los módulos
 modules-left =  i3 bspwm
 modules-center = 
-modules-right = spotify pulseaudio kde date 
+modules-right = spotify pulseaudio kde arch date  
 
 ;posición de la bandeja de notificaciones
 tray-position = right
 tray-padding = 1
 ;tray-background = #bf6a87
-tray-background =
+tray-background = 
+tray-underline = #1C98C9
+;tray-detached = true
 ;no sepo
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -370,10 +375,10 @@ time-alt = "%H:%M:%S "
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = #0a6cf5
+format-underline = #5294E2
 
 label = %date% %time%
-format-background = ${colors.background}
+format-background = 
 label-foreground = ${root.foreground}
 
 
@@ -388,11 +393,13 @@ type = internal/pulseaudio
 format-volume = " <ramp-volume> <label-volume> " 
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
-;format-volume-underline = #F7923A
+format-volume-underline = #8b484e
+
 
 label-muted =  %percentage%%
 label-muted-foreground = #666666
-label-muted-background = #8b484e
+label-muted-background = 
+format-muted-underline = #8b484e
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
@@ -414,7 +421,7 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-format-volume-background = ${colors.background}
+format-volume-background =
 click-right = exec pavucontrol & 
 ;========================================
 
@@ -555,6 +562,8 @@ exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
 format-underline = #99B898
 format-background =  
 format-foreground = #FFFFFF
+click-right = playerctl play-pause
+click-left = bspc desktop -f ^8 
 ;======================================
 
 ;============ clima ==========================
@@ -574,7 +583,9 @@ format-prefix = "  "
 label = "%output%% "
 exec = ~/.config/polybar/scripts/kde-bat
 interval = 300
-format-background = 
+format-background =
+format-underline = #005688
+
 click-left = ~/scripts/kdeconnect-rofi
 
 ;=============================================
@@ -592,6 +603,14 @@ hook-1=echo adios
 initial=1
 click-left = polybar-msg hook cal 2
 
+;============ updates =====================
+[module/arch]
+type = custom/script
+format-prefix = " ﮋ "
+label = "%output% " 
+format-underline = #D1B927
+exec = ~/.config/polybar/scripts/updates-arch.sh
+interval = 600
 
 ;============ powerline separador ===========
 [module/separador]
@@ -606,48 +625,46 @@ screenchange-reload = true
 ;compositing-border = over
 pseudo-transparency = true
 
-[global/wm]
-margin-top = 5
-margin-bottom = 5
 
 ; vim:ft=dosini
 
 
 [module/sep-date]
 type = custom/text
-content = "%{T3} %{T-}"
+content = "%{T3} %{T-}"
 content-font = 3
-content-foreground = #6A7792
+content-foreground = #287A4F
 content-background = #8C9FC5
+
 
 [module/sep-tray]
 type = custom/text
-content = "%{T3} %{T-}"
+content = "%{T3} %{T-}"
 content-font = 3
-content-foreground = #bf6a87
-content-background = #6A7792
+content-foreground = #1C98C9
+content-background = #287A4F
 
 
 
 [module/sep-vol]
 type = custom/text
-content = "%{T3} %{T-}"
-content-font = 3
-content-foreground = #4B5568
-content-background = #9DB788
+content = "%{T3} %{T-}"
+content-font = 2
+content-foreground = #2D333F
+content-background = 
 
 [module/sep-spo]
 type = custom/text
-content = "%{T3} %{T-}"
+content = "%{T3} %{T-}"
 content-font = 3
 content-foreground = #9DB788
 
 [module/sep-kde]
 type = custom/text
-content = "%{T3} %{T-}"
+content = "%{T3} %{T-}"
 content-font = 3
 content-foreground = #8C9FC5
-content-background = #4B5568
+content-background = #2D333F
 
 
 
