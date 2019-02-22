@@ -8,7 +8,7 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="spaceship"
-SPACESHIP_CHAR_SYMBOL="  "
+SPACESHIP_CHAR_SYMBOL="  "
 SPACESHIP_GIT_PREFIX="en "
 SPACESHIP_GIT_SYMBOL=
 SPACESHIP_GIT_BRANCH_PREFIX=" "

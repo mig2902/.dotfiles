@@ -31,7 +31,7 @@
 telephone-line-secondary-left-separator 'telephone-line-abs-hollow-left
 telephone-line-primary-right-separator 'telephone-line-abs-right
 telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
-(setq telephone-line-height 24)
+(setq telephone-line-height 20)
 (telephone-line-mode 1)
 
 
@@ -625,6 +625,7 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
  '(pos-tip-foreground-color "#93a1a1")
  '(rainbow-delimiters-max-face-count 5)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
+ '(telephone-line-height 20)
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
  '(vc-annotate-background "#2B2B2B")
@@ -691,5 +692,7 @@ telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
  '(spaceline-highlight-face ((t (:background "SkyBlue2" :foreground "#3E3D31" :inherit (quote mode-line)))))
  '(spaceline-modified ((t (:background "#BF616A" :foreground "#3E3D31" :inherit (quote mode-line)))))
  '(spaceline-unmodified ((t (:background "SkyBlue2" :foreground "#3E3D31" :inherit (quote mode-line)))))
- '(telephone-line-accent-active ((t (:inherit mode-line :background "#3B4251" :foreground "white")))))
+ '(telephone-line-accent-active ((t (:inherit mode-line :background "#3B4251" :foreground "white"))))
+ '(telephone-line-evil-insert ((t (:inherit telephone-line-evil :background "sea green"))))
+ '(telephone-line-evil-normal ((t (:inherit telephone-line-evil :background "DeepSkyBlue4")))))
 

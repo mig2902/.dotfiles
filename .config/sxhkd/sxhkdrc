@@ -17,7 +17,7 @@
 
 #Terminal
 super + Return
-      kitty
+      termite
 
 #Rofi
 super + d
@@ -30,16 +30,16 @@ alt + Tab
     rofi -modi "window,run,drun" -show window -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
 
 ## Firefox
-#super + F2
-#      firefox
+super + F2
+      firefox
 
 #Chromium
-super + F2
-      chromium
+#super + F2
+#      chromium
 
 #File Manager
 super + f
-      kitty -e ranger
+      termite -e ranger
 
 #Spotify
 super + F5
@@ -53,7 +53,7 @@ super + shift + e
 
 #htop
 super + F4
-      kitty -e htop
+      termite -e htop
 
 #Screenshots
 Print
