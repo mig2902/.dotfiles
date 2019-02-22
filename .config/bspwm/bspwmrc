@@ -47,7 +47,8 @@ conky -c ~/conkys/cpu-ram &
 conky -c ~/conkys/pie/pie_clock &
 xautolock -locker i3lock-fancy -f Fantasque-Sans-Mono-Regular -t Contraseña, mode "default" &
 emacs --daemon &
-~/.config/polybar/polybar_launch.sh &
+#~/.config/polybar/polybar_launch.sh &
+polybar -c ~/.config/polybar/config example -r &
 fluxgui &
 /usr/lib/kdeconnectd &
 #indicator-kdeconnect &
