@@ -53,7 +53,8 @@ var sites = {
 			    "Gmail" : "https://mail.google.com",
 			    "Google Drive" : "https://grive.google.com",
 			    "Diccionario" : "https://dle.rae.es/?w=diccionario",
-			    "Clima" : "https://openweathermap.org/city/4000900"
+			    "Clima" : "https://openweathermap.org/city/4000900",
+			    "ZoteroBib" : "https://zbib.org/"
 			},
 
 		};

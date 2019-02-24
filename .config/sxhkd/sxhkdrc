@@ -39,7 +39,8 @@ super + F2
 
 #File Manager
 super + f
-      termite -e ranger
+#      termite -e ranger
+       termite -e lf
 
 #Spotify
 super + F5

@@ -40,7 +40,7 @@ nitrogen --restore; sleep 1; compton -b &
 compton -b --config ~/.config/compton.conf &
 nm-applet &
 xfce4-power-manager &
-pamac-tray &
+#pamac-tray &
 clipit &
 #conky -c ~/conkys/shortcuts_i3 &
 conky -c ~/conkys/cpu-ram &
@@ -49,7 +49,8 @@ xautolock -locker i3lock-fancy -f Fantasque-Sans-Mono-Regular -t Contraseña, mo
 emacs --daemon &
 #~/.config/polybar/polybar_launch.sh &
 polybar -c ~/.config/polybar/config example -r &
-fluxgui &
+#fluxgui &
+redshift &
 /usr/lib/kdeconnectd &
 #indicator-kdeconnect &
 pacmd load-module module-remap-sink sink_name=mono master=alsa_output.pci-0000_00_14.2.analog-stereo channels=2 channel_map=mono,mono &
