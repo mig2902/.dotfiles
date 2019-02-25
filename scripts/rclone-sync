@@ -1,0 +1,26 @@
+#! /bin/sh
+
+echo "ESTA FUNCIÓN CLONARÁ LA FUENTE SELECCIONADA EN EL OBJETIVO. SE ELIMINARÁN ARCHIVOS QUE NO EXISTAN EN EL DESTINO Y SE PUEDE PERDER INFORMACIÓN. ¿CONTINUAR? (s/n)"
+read var
+
+if [ "$var" == "s" ]
+then
+    echo "¿Cómo desea realizar la clonación?"
+    echo "1) Nube ==> Disco local"
+    echo "2) Disco local ==> Nube"
+    echo "Presione 1 o 2. Presione cualquier otra tecla para cancelar"
+    read menu
+    if [ "$menu" == "1" ]
+    then
+	rclone sync grive: ~/remote
+    elif [ "$menu" == "2" ]
+    then
+	rclone sync ~/remote grive:
+    else
+	echo "Cancelado"
+    fi
+else
+  echo  "Cancelado"
+fi
+	
+	    
