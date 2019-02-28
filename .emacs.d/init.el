@@ -27,10 +27,10 @@
 (nil . (telephone-line-buffer-segment))))
 
 (setq telephone-line-subseparator-faces '()) 
-(setq telephone-line-primary-left-separator 'telephone-line-abs-left
-telephone-line-secondary-left-separator 'telephone-line-abs-hollow-left
-telephone-line-primary-right-separator 'telephone-line-abs-right
-telephone-line-secondary-right-separator 'telephone-line-abs-hollow-right)
+(setq telephone-line-primary-left-separator 'telephone-line-tan-left
+telephone-line-secondary-left-separator 'telephone-line-tan-hollow-left
+telephone-line-primary-right-separator 'telephone-line-tan-right
+telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
 (setq telephone-line-height 20)
 (telephone-line-mode 1)
 
