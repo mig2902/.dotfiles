@@ -12,10 +12,10 @@ then
     read menu
     if [ "$menu" == "1" ]
     then
-	rclone sync grive: ~/remote
+	rclone sync google: ~/Drive
     elif [ "$menu" == "2" ]
     then
-	rclone sync ~/remote grive:
+	rclone sync ~/Drive google:
     else
 	echo "Cancelado"
     fi

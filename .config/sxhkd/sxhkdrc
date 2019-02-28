@@ -40,7 +40,8 @@ super + F2
 #File Manager
 super + f
 #      termite -e ranger
-       termite -e lf
+#      termite -e lf
+       termite -e nnn
 
 #Spotify
 super + F5
@@ -59,7 +60,7 @@ super + F4
 #Screenshots
 Print
 	flameshot gui -p ~/Imágenes/screenshots
-super + Shift + Print	
+super + shift + Print	
       flameshot gui -d 2000 -p ~/Imágenes/screenshots
 super + Print	
       flameshot full -c
@@ -95,6 +96,10 @@ super + shift + o
 # Reiniciar sxhdk 
 super + shift + r
       pkill -USR1 -x sxhkd
+
+#Reinicar bspwm
+super + ctrl + r
+      bspc wm -r
 
 ##########################
 # Scripts
