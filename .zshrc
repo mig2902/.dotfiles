@@ -124,5 +124,5 @@ alias emc="emacsclient -c"
 alias emt="emacsclient -t"
 alias ranger="~/.sources/ranger/ranger.py"
 #neofetch | lolcat
-neofetch --ascii "$(fortune-es|cowsay -W 30)" |  lolcat
+neofetch --ascii "$(fortune-es|cowsay -W 30)" | lolcat 
 
