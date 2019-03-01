@@ -2,7 +2,7 @@
 set shell sh
 set drawbox
 set ratios '1:3:2'
-set ifs
+set ifs "\n"
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -24,11 +24,12 @@ set scrolloff 10
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
 # text files and a file opener for the rest.
-cmd open ${{
-    case $(file --mime-type $f -b) in
-        text/*) $EDITOR $fx;;
-        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
-    esac
+
+cmd open &{{
+    case $(file --mime-type "$f" -b) in
+        text/*) /home/$USER/.config/lf/emc $f;;
+        *) for f in $f; do $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac & disown
 }}
 
 # rename current file without overwrite
@@ -103,6 +104,14 @@ cmd kdeconnect &{{
 		    notify-send -a "Kdeconnect" "Enviando archivo"
 		}}
 
+cmd rclone-push &{{
+    rclone copy ~/Drive google: -u
+}}
+
+cmd rclone-pull &{{
+    rclone copy google: ~/Drive -u
+}}
+
 # use enter for shell commands
 map <enter> shell
 
@@ -111,17 +120,18 @@ map <enter> shell
 ##############
 
 # execute current file (must be executable)
-#map x $$f
-#map X !$f
+#map x $"$f" 
+#map X !"$f"
 
 # dedicated keys for file opener actions
-map o $mimeopen $f
-map O $mimeopen --ask $f
+map o &mimeopen "$f" & disown
+map O $mimeopen --ask "$f" & disown
 map r push :rename<space>
-map e &emacsclient -c $f
+map e &emacsclient -c "$f" & disown
 
 map ak :kdeconnect
-
+map ap :rclone-push
+map aP :rclone-pull
 
 map gh cd ~
 map ge cd /etc
