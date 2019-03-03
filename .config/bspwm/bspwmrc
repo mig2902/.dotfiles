@@ -34,6 +34,7 @@ bspc rule -a Zathura state=tiled
 bspc rule -a MPlayer state=floating
 bspc rule -a Sxiv state=floating
 bspc rule -a mpv state=floating
+bspc rule -a Emacs:capture state=floating sticky
 
 # Autostart
 # Crea un archivo de bloqueo en /tmp al arrancar y ejecuta todo, en siguientes ejecuciones de bspwmrc, el archivo existirá, y por lo tanto, no se ejecutará nada, evitando instancias repetidas
