@@ -3,6 +3,14 @@ set shell sh
 set drawbox
 set ratios '1:3:2'
 set ifs "\n"
+set noanchorfind
+set findlen 0
+set incsearch
+set globsearch
+
+
+
+
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -104,11 +112,11 @@ cmd kdeconnect &{{
 		    notify-send -a "Kdeconnect" "Enviando archivo"
 		}}
 
-cmd rclone-push &{{
+cmd rclone-push ${{
     rclone copy ~/Drive google: -u
 }}
 
-cmd rclone-pull &{{
+cmd rclone-pull ${{
     rclone copy google: ~/Drive -u
 }}
 
@@ -128,6 +136,10 @@ map o &mimeopen "$f" & disown
 map O $mimeopen --ask "$f" & disown
 map r push :rename<space>
 map e &emacsclient -c "$f" & disown
+
+map f $lf -remote "send $id select $(fzf --height 50% --reverse --border --margin 5% --inline-info --color border:#005688,bg+:#16252E,fg+:#26c6da,hl+:#ffffff,hl:#26c6da)"
+map F $find -L | lf -remote "send $id select $(fzf --height 50% --reverse --border --margin 5% --inline-info --color border:#005688,bg+:#16252E,fg+:#26c6da,hl+:#ffffff,hl:#26c6da)"
+
 
 map ak :kdeconnect
 map ap :rclone-push
