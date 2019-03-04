@@ -3,14 +3,8 @@ set shell sh
 set drawbox
 set ratios '1:3:2'
 set ifs "\n"
-set noanchorfind
-set findlen 0
 set incsearch
-set globsearch
-
-
-
-
+set findlen 0
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
@@ -137,8 +131,7 @@ map O $mimeopen --ask "$f" & disown
 map r push :rename<space>
 map e &emacsclient -c "$f" & disown
 
-map f $lf -remote "send $id select $(fzf --height 50% --reverse --border --margin 5% --inline-info --color border:#005688,bg+:#16252E,fg+:#26c6da,hl+:#ffffff,hl:#26c6da)"
-map F $find -L | lf -remote "send $id select $(fzf --height 50% --reverse --border --margin 5% --inline-info --color border:#005688,bg+:#16252E,fg+:#26c6da,hl+:#ffffff,hl:#26c6da)"
+map F $find | lf -remote "send $id select $(fzf --height 50% --reverse --border --margin 5% --inline-info --color border:#005688,bg+:#16252E,fg+:#26c6da,hl+:#ffffff,hl:#26c6da)"
 
 
 map ak :kdeconnect
