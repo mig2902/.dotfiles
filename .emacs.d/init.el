@@ -20,30 +20,37 @@
     ;==== Telephone line ====
 (require 'telephone-line)
 
-(telephone-line-defsegment* shackra-vc-info ()
-      (when vc-mode
-        (cond ((string-match "Git[:-]" vc-mode)
-               (let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
-                 (concat
-                  (propertize (format " %s" (all-the-icons-alltheicon "git")) 'face `(:foreground "orange" :height 1.3) 'display '(raise -0.1))
-                  " · "
-                  (propertize (format "%s" (all-the-icons-octicon "git-branch"))
-                              'face `(:foreground "yellow" :height 1.3 :family ,(all-the-icons-octicon-family))
+(telephone-line-defsegment* my-vc-info ()
+  (when vc-mode
+    (cond
+      ((string-match "Git[:-]" vc-mode)
+        (let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
+          (concat (propertize (format "")
+                              'face `(:foreground "yellow" :height 1.3)
                               'display '(raise -0.1))
-                  (propertize (format " %s" branch) 'face `(:foreground "yellow" :height 0.9)))))
-              ((string-match "SVN-" vc-mode)
-               (let ((revision (cadr (split-string vc-mode "-"))))
-                 (concat
-                  (propertize (format " %s" (all-the-icons-faicon "cloud")) 'face `(:height 1.3) 'display '(raise -0.1))
-                  (propertize (format " · %s" revision) 'face `(:height 0.9)))))
-              (t (format "%s" vc-mode)))))
+                  (propertize (format " %s" branch)
+                              'face `(:foreground "yellow" :height 0.9)))))
+      ((string-match "SVN-" vc-mode)
+        (let ((revision (cadr (split-string vc-mode "-"))))
+          (concat (propertize (format "")
+                              'face `(:height 1.3)
+                              'display '(raise -0.1))
+                  (propertize (format " %s" revision)
+                              'face `(:height 0.9)))))
+      (t (format "%s" vc-mode)))))
 
+(telephone-line-defsegment* my-airline-position-segment (&optional lines columns)
+  (let* ((l (number-to-string (if lines lines 1)))
+         (c (number-to-string (if columns columns 2))))
+    (if (eq major-mode 'paradox-menu-mode)
+        (telephone-line-raw mode-line-front-space t)
+      `((-3 "%p") ,(concat "  " "%" l "l:%" c "c")))))
 
 
 (setq telephone-line-lhs
 '((evil . (telephone-line-evil-tag-segment))
 ;(accent . (telephone-line-vc-segment
-  (accent . (shackra-vc-info
+(accent . (my-vc-info
     telephone-line-erc-modified-channels-segment
     telephone-line-process-segment))
 (nil . (telephone-line-buffer-segment))))
@@ -637,9 +644,6 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "946e871c780b159c4bb9f580537e5d2f7dba1411143194447604ecbaf01bd90c" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "f66ffeadda7b52d40c8d698967ae9e9836f54324445af95610d257fa5e3e1e21" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a94f1a015878c5f00afab321e4fef124b2fc3b823c8ddd89d360d710fc2bddfc" "0cd56f8cd78d12fc6ead32915e1c4963ba2039890700458c13e12038ec40f6f5" "de0b7245463d92cba3362ec9fe0142f54d2bf929f971a8cdf33c0bf995250bcf" "251348dcb797a6ea63bbfe3be4951728e085ac08eee83def071e4d2e3211acc3" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "721bb3cb432bb6be7c58be27d583814e9c56806c06b4077797074b009f322509" "b59d7adea7873d58160d368d42828e7ac670340f11f36f67fa8071dbf957236a" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "bf390ecb203806cbe351b966a88fc3036f3ff68cd2547db6ee3676e87327b311" "0c32e4f0789f567a560be625f239ee9ec651e524e46a4708eb4aba3b9cdc89c5" "1e9001d2f6ffb095eafd9514b4d5974b720b275143fbc89ea046495a99c940b0" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
  '(delete-selection-mode nil)
  '(display-line-numbers (quote visual))
- '(elfeed-feeds
-   (quote
-    ("http://www.xatakaciencia.com/index.xml" "http://www.muyinteresante.com.mx/home.rss/" "http://www.theverge.com/rss/full.xml" "http://www.malavida.com/rss/nov-all/es/0/winlinmac_ultima_act.xml" "http://feeds.feedburner.com/Malavida" "http://metalportuculo.com/feed" "http://www.elportaldelmetal.com/rss.xml" "http://www.metalsucks.net/feed/rss/" "http://feeds2.feedburner.com/metalinjection" "http://colectivopericu.wordpress.com/feed/" "http://www.bcsnoticias.mx/feed/" "https://manjaro.org/feed.xml" "https://kernelpanicblog.wordpress.com/feed/" "https://mantisfistjabn.wordpress.com/feed/" "http://feeds.feedburner.com/ElBlogDeEnriqueDans" "http://www.xatakandroid.com/index.xml" "http://es.engadget.com/rss.xml" "http://www.xatakamovil.com/atom.xml" "http://www.genbeta.com/index.xml" "http://www.elandroidelibre.com/feed/" "http://feeds.weblogssl.com/xataka2" "http://www.jornada.unam.mx/rss/edicion.xml" "http://www.eluniversal.com.mx/rss/mexico.xml" "http://news.google.com/news?hl=en&gl=us&q=NoticiasM%C3%A9xico&um=1&ie=UTF-8&output=rss" "http://feeds.feedburner.com/proceso" "http://eldeforma.com/feed/" "http://www.reforma.com/rss/portada.xml" "http://www.elpais.com/rss/feed.html?feedId=1022" "http://www.teamfortress.com/rss.xml" "http://feeds.ign.com/ign/games-all" "http://www.vandal.net/cgi-bin/xml.cgi" "http://www.eurogamer.es/rss/eurogamer_frontpage_feed.rss" "http://www.3djuegos.com/universo/rss/rss.php?plats=1-2-3-4-5-6-7&tipos=noticia-analisis-avance-video-imagenes-demo&fotos=no&limit=20" "https://blog.xfce.org/feed")))
  '(evil-want-C-i-jump nil)
  '(fci-rule-color "#383838")
  '(flyspell-default-dictionary "espanol")
