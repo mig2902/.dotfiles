@@ -19,9 +19,31 @@
   (with-selected-frame (or frame (selected-frame))
     ;==== Telephone line ====
 (require 'telephone-line)
+
+(telephone-line-defsegment* shackra-vc-info ()
+      (when vc-mode
+        (cond ((string-match "Git[:-]" vc-mode)
+               (let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
+                 (concat
+                  (propertize (format " %s" (all-the-icons-alltheicon "git")) 'face `(:foreground "orange" :height 1.3) 'display '(raise -0.1))
+                  " · "
+                  (propertize (format "%s" (all-the-icons-octicon "git-branch"))
+                              'face `(:foreground "yellow" :height 1.3 :family ,(all-the-icons-octicon-family))
+                              'display '(raise -0.1))
+                  (propertize (format " %s" branch) 'face `(:foreground "yellow" :height 0.9)))))
+              ((string-match "SVN-" vc-mode)
+               (let ((revision (cadr (split-string vc-mode "-"))))
+                 (concat
+                  (propertize (format " %s" (all-the-icons-faicon "cloud")) 'face `(:height 1.3) 'display '(raise -0.1))
+                  (propertize (format " · %s" revision) 'face `(:height 0.9)))))
+              (t (format "%s" vc-mode)))))
+
+
+
 (setq telephone-line-lhs
 '((evil . (telephone-line-evil-tag-segment))
-(accent . (telephone-line-vc-segment
+;(accent . (telephone-line-vc-segment
+  (accent . (shackra-vc-info
     telephone-line-erc-modified-channels-segment
     telephone-line-process-segment))
 (nil . (telephone-line-buffer-segment))))
@@ -423,7 +445,7 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
     :custom
   (yequake-frames
    '(("org-capture" 
-      (buffer-fns . (yequake-org-capture))
+      (buffer-fns . (yequake-mu4e))
       (width . 0.75)
       (height . 0.5)
       (alpha . 0.95)
@@ -486,6 +508,25 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
 ;  (define-key pdf-view-mode-map (kbd "n") 'pdf-view-midnight-minor-mode)
 ;;  (define-key pdf-view-mode-map (kbd "q") 'nil :exit t)
 
+;;============= all the icons ====================
+(use-package all-the-icons
+  :ensure t)
+(use-package all-the-icons-dired
+  :ensure t
+  :config
+  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+(use-package all-the-icons-ivy
+  :ensure t
+  :after (all-the-icons ivy)
+  :custom (all-the-icons-ivy-file-commands '(counsel-dired-jump
+                                             counsel-find-file
+                                             counsel-file-jump
+                                             counsel-find-library
+                                             counsel-git
+                                             counsel-projectile-find-dir
+                                             counsel-projectile-find-file
+                                             counsel-recentf))
+  :config (all-the-icons-ivy-setup))
 
 ;;====================================
 ;; CONFIGURACIONES DE ORG-MODE
@@ -632,10 +673,11 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
  '(hl-sexp-background-color "#1c1f26")
  '(inhibit-startup-screen t)
  '(magit-diff-use-overlays nil)
+ '(neo-theme (quote icons))
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
- '(org-agenda-files nil)
+ '(org-agenda-files (quote ("~/Drive/sync/cuaderno/index.org")))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
@@ -644,7 +686,7 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
      ("\\.pdf\\'" . "zathura %s"))))
  '(package-selected-packages
    (quote
-    (smtpmail-multi frames-only-mode flymd yequake noflet evil-magit lua-mode counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
+    (all-the-icons-ivy all-the-icons-dired all-the-icons smtpmail-multi frames-only-mode flymd yequake noflet evil-magit lua-mode counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pdf-view-resize-factor 1.05)
  '(pos-tip-background-color "#073642")
@@ -687,13 +729,15 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
  '(yequake-frames
    (quote
     (("org-capture"
-      (buffer-fns yequake-org-capture)
+      (buffer-fns yequake-mu4e)
       (width . 0.75)
       (height . 0.5)
       (alpha . 0.95)
       (frame-parameters
        (undecorated . t)
        (skip-taskbar . t)
+       (quote
+	(name . "capture"))
        (sticky . t)))))))
 
 (custom-set-faces
