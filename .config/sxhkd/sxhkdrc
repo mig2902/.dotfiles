@@ -55,6 +55,8 @@ super + shift + e
       emacsclient -ne '(new-frame)'
 super + c; c
       emacsclient -c -F '(quote (name . "capture") (width  . 120) (height . 30) (left . 150))' -n -e "(make-capture-frame)"
+super + shift + m
+      emacsclient -cn -F '(quote (name . "capture") (width  . 120) (height . 30) (left . 150))' -e '(mu4e)'
 
 #htop
 super + F4
@@ -121,7 +123,7 @@ alt + space
     ~/scripts/via/via
 
 #Kde-connect
-super + shift + p
+super + p
       ~/scripts/kdeconnect-rofi
 
 #Apagar
@@ -129,7 +131,7 @@ super + F12
       ~/scripts/apagar
 
 # Nubes
-super + ctrl + n
+super + ctrl + p
       ~/scripts/rclone-rofi
 
 
