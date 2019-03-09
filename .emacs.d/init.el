@@ -229,6 +229,15 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
 	       )
 )
 
+;(use-package elfeed-goodies
+;  :ensure t
+;  :init
+;  (elfeed-goodies/setup))
+(use-package elfeed-org
+  :ensure t
+  :init
+  (elfeed-org))
+
 ;;==== IDO-vertical =====
 ;(use-package ido-vertical-mode
 ;    :ensure
@@ -264,11 +273,12 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
   :ensure t
  :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-items '((recents . 5)
-		      (bookmarks . 5)
-		      (projects . 5)))
+  (setq dashboard-items '((agenda . 5)
+			  (projects . 5)
+			  (recents . 5)
+			  (registers . 5)))
   (setq dashboard-startup-banner 'logo)
-  (setq dashboard-banner-logo-title "Inserte frase edgy aquí")      (add-to-list 'dashboard-items '(agenda) t)
+  (setq dashboard-banner-logo-title "Inserte frase edgy aquí")
   (setq show-week-agenda-p t))
 
 ;;==== Ox-reveal =====
@@ -312,6 +322,8 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
 ;;==== Evil-mode ====
 (use-package evil
   :ensure t
+  :init
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1)
   
@@ -323,6 +335,24 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
 (define-key evil-motion-state-map (kbd "C-u") 'evil-scroll-up)
 ;; Make horizontal movement cross lines
 (setq-default evil-cross-lines t))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init)
+  )
+
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 ;;==== Nov.el ====
 (use-package nov
@@ -405,12 +435,11 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
            (flyspell-mode)))
 
 ;; Para enviar correos
-; use msmtp
-;(setq message-send-mail-function 'message-send-mail-with-sendmail)
-;(setq sendmail-program "/usr/bin/msmtp")
-;; tell msmtp to choose the SMTP server according to the from field in the outgoing email
-;(setq message-sendmail-extra-arguments '("--read-envelope-from"))
-;(setq message-sendmail-f-is-evil 't)
+(setq message-send-mail-function 'message-send-mail-with-sendmail)
+(setq sendmail-program "/usr/bin/msmtp")
+; tell msmtp to choose the SMTP server according to the from field in the outgoing email
+(setq message-sendmail-extra-arguments '("--read-envelope-from"))
+(setq message-sendmail-f-is-evil 't)
 
 ;;==== Magit ====
 (use-package magit
@@ -451,14 +480,15 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
   :ensure t
     :custom
   (yequake-frames
-   '(("org-capture" 
-      (buffer-fns . (yequake-mu4e))
+   '(("mu4e" 
+      (buffer-fns . (yequake
+		     mu4e))
       (width . 0.75)
       (height . 0.5)
       (alpha . 0.95)
       (frame-parameters . ((undecorated . t)
                            (skip-taskbar . t)
-			   (quote (name . "capture"))
+			   (quote (name . "mu4e"))
                            (sticky . t)))))))
 
 (use-package markdown-mode
@@ -548,10 +578,18 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
 (setq org-agenda-window-setup
       'other-window)
 
+;; agenda flotante
+(defun agenda-frame ()
+  (interactive)
+  (org-agenda nil "n")
+  (delete-other-windows))
+
+
+
 ;;==== próximos 14 dias en agenda ====
-(setq org-agenda-span 14)
+(setq org-agenda-span 7)
 (setq org-agenda-start-on-weekday nil)
-(setq org-agenda-start-day "-3d")
+(setq org-agenda-start-day "-1d")
 
 ;;==== Añadir partes de un archivo como link ====
 (global-set-key (kbd "C-c l") 'org-store-link)
@@ -559,16 +597,33 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
 ;;==== org-capture ====
 (global-set-key (kbd "C-c c") 'org-capture)
 (setq org-capture-templates
- '(("t" "TODO" entry
-   (file+headline "~/Drive/sync/cuaderno/index.org" "TO-DO")
-   "* TODO %?\n%t" :prepend t)
-  ("n" "Notas" entry
-   (file+headline "~/Drive/sync/cuaderno/index.org" "Notas")
-   "* %?" :prepend t)
-  ("d" "Diario" entry
-   (file+olp+datetree "~/Drive/sync/cuaderno/diario.org")
-   "* %?" :prepend t)
-))
+      '(("i" "Inbox" entry
+	 (file "~/Drive/sync/gtd/ai.org")
+	 "* %?\n%u" :prepend t)
+
+	("t" "TODO" entry
+	 (file+headline "~/Drive/sync/gtd/a.org" "TO-DO")
+	 "* TODO %?\n%u" :prepend t)
+
+	("c" "Consulta" entry
+	 (file+headline "~/Drive/sync/gtd/a.org" "Consulta")
+	 "* INFO %?\n" :prepend t)
+
+	("a" "Agenda"  entry
+	 (file+headline "~/Drive/sync/gtd/a.org" "Agenda")
+	 "* CITA %?\n SCHEDULED: %t" :prepend t)
+	
+	("n" "Notas" entry
+	 (file+headline "~/Drive/sync/gtd/a.org" "Notas")
+	 "* %?" :prepend t)
+
+	("m" "Después" entry
+	 (file+headline "~/Drive/sync/gtd/a.org" "Tal vez")
+	"* %?" :prepend t) 
+
+	("d" "Diario" entry
+	 (file+olp+datetree "~/Drive/sync/cuaderno/diario.org")
+	 "* %?" :prepend t)))
 
 ;;==== Shift support ====
 (setq org-support-shift-select t)
@@ -581,11 +636,11 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
   :ensure t)
 (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
 
-;;==== Cireproc-org ====
-(add-to-list 'load-path "/home/equipo/.emacs.d/modes/")
-(require 'citeproc-org)
+;;;==== Cireproc-org ====
+;(add-to-list 'load-path "/home/equipo/.emacs.d/modes/")
+;(require 'citeproc-org)
 ;  (citeproc-org-setup)
-'(citeproc-org-locales-dir "/home/equipo/.emacs.d/csl-locales/")
+;'(citeproc-org-locales-dir "/home/equipo/.emacs.d/csl-locales/")
 
 ;;==== <el = emacs-lisp ====
 (add-to-list 'org-structure-template-alist
@@ -625,12 +680,16 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(all-the-icons-ivy-file-commands
+   (quote
+    (counsel-dired-jump counsel-find-file counsel-file-jump counsel-find-library counsel-git counsel-projectile-find-dir counsel-projectile-find-file counsel-recentf)))
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
  '(citeproc-org-bibtex-export-use-affixes t)
  '(citeproc-org-suppress-author-cite-link-types (quote ("citet")))
+ '(column-number-mode t)
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(compilation-message-face (quote default))
@@ -648,6 +707,7 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
  '(fci-rule-color "#383838")
  '(flyspell-default-dictionary "espanol")
  '(frame-background-mode nil)
+ '(global-display-line-numbers-mode t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -681,7 +741,13 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
- '(org-agenda-files (quote ("~/Drive/sync/cuaderno/index.org")))
+ '(org-agenda-custom-commands
+   (quote
+    (("n" "Agenda and all TODOs"
+      ((agenda "" nil)
+       (todo "TODO" nil))
+      nil))))
+ '(org-agenda-files (quote ("~/Drive/sync/gtd/a.org")))
  '(org-file-apps
    (quote
     ((auto-mode . emacs)
@@ -690,16 +756,19 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
      ("\\.pdf\\'" . "zathura %s"))))
  '(package-selected-packages
    (quote
-    (all-the-icons-ivy all-the-icons-dired all-the-icons smtpmail-multi frames-only-mode flymd yequake noflet evil-magit lua-mode counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
+    (elfeed-org elfeed-goodies evil-org org-super-agenda evil-collection all-the-icons-ivy all-the-icons-dired all-the-icons smtpmail-multi frames-only-mode flymd yequake noflet evil-magit lua-mode counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pdf-view-resize-factor 1.05)
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(rainbow-delimiters-max-face-count 5)
+ '(send-mail-function (quote smtpmail-send-it))
+ '(show-paren-mode t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(telephone-line-height 20)
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
+ '(tool-bar-mode nil)
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-background-mode nil)
  '(vc-annotate-color-map
@@ -732,8 +801,8 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
    ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"])
  '(yequake-frames
    (quote
-    (("org-capture"
-      (buffer-fns yequake-mu4e)
+    (("mu4e"
+      (buffer-fns yequake mu4e)
       (width . 0.75)
       (height . 0.5)
       (alpha . 0.95)
@@ -741,7 +810,7 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
        (undecorated . t)
        (skip-taskbar . t)
        (quote
-	(name . "capture"))
+	(name . "mu4e"))
        (sticky . t)))))))
 
 (custom-set-faces
