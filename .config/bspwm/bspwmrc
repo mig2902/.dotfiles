@@ -35,67 +35,34 @@ bspc rule -a MPlayer state=floating
 bspc rule -a Sxiv state=floating
 bspc rule -a mpv state=floating
 bspc rule -a Emacs:capture state=floating sticky=on
+bspc rule -a Emacs:mu4e state=floating sticky=on
+bspc rule -a Emacs:agenda state=floating sticky=on
 
 # Autostart
 # Crea un archivo de bloqueo en /tmp al arrancar y ejecuta todo, en siguientes ejecuciones de bspwmrc, el archivo existirá, y por lo tanto, no se ejecutará nada, evitando instancias repetidas
 
-#startup_lock_file=/tmp/bspwm-startup.lock
-#if [ ! -f $startup_lock_file ]; then
-#    echo "dummy" > $startup_lock_file
-    
+startup_lock_file=/tmp/bspwm-startup.lock
+if [ ! -f $startup_lock_file ]; then
+    echo "dummy" > $startup_lock_file
+   
 # Agregar las aplicaciones de autoarranque debajo de esta línea
 #==========================================================================================================================
-if [ -z "$(pidof nitrogen)" ]; then
-    nitrogen --restore; sleep 1; compton -b &
-fi
-
-if [ -z "$(pidof compton)" ]; then
-    compton -b --config ~/.config/compton.conf &
-fi
-
-if [ -z "$(pidof nm-applet)" ]; then
-    nm-applet &
-fi
-
-if [ -z "$(pidof xfce4-power-manager)" ]; then
-    xfce4-power-manager &
-fi
-
-#pamac-tray &
-
-if [ -z "$(pidof clipit)" ]; then
-    clipit &
-fi
-
-if [ -z "$(pidof conky)" ]; then
-    #conky -c ~/conkys/shortcuts_i3 &
-    conky -c ~/conkys/cpu-ram &
-    conky -c ~/conkys/pie/pie_clock &
-fi
-
-#if  [ -z "$(pidof xautolock)"]; then
-#    xautolock -locker i3lock-fancy -f Fantasque-Sans-Mono-Regular -t Contraseña, mode "default" &
-#fi
-
-if [ -z "$(pidof emacs)" ]; then
-    emacs --daemon &
-fi
-
-if [ -z "$(pidof polybar)" ]; then
-    polybar -c ~/.config/polybar/config example -r &
-fi
-
-#fluxgui &
-
-
-if [ -z "$(pido kdeconnectd)" ]; then
-    /usr/lib/kdeconnectd &
-fi
-
-killall redshift
+nitrogen --restore; sleep 1; compton -b &
+compton -b --config ~/.config/compton.conf &
+nm-applet &
+xfce4-power-manager &
+pcloud &
+clipit &
+conky -c ~/conkys/cpu-ram &
+conky -c ~/conkys/pie/pie_clock &
+xautolock -locker i3lock-fancy -f Fantasque-Sans-Mono-Regular -t Contraseña, mode "default" &
+emacs --daemon &
+polybar -c ~/.config/polybar/config example -r &
+/usr/lib/kdeconnectd &
 redshift &
 pacmd load-module module-remap-sink sink_name=mono master=alsa_output.pci-0000_00_14.2.analog-stereo channels=2 channel_map=mono,mono &
 xrdb -load ~/.Xresources &
 numlockx on &
 
 #==========================================================================================================================
+fi

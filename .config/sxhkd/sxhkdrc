@@ -51,12 +51,22 @@ super + F5
 #Emacsclient
 super + e
       emacsclient -c
+
 super + shift + e
       emacsclient -ne '(new-frame)'
+      
+super + a
+      emacsclient -c -F '(quote (name . "agenda") (width  . 145) (height . 45) (left . 50) (top . 100))' -n -e "(agenda-frame)"
+
+super + shift + m
+      emacsclient -cn -F '(quote (name . "mu4e") (width  . 145) (height . 45) (left . 50) (top . 100))' -e '(mu4e)'
+
+# emacs gtd
 super + c; c
       emacsclient -c -F '(quote (name . "capture") (width  . 120) (height . 30) (left . 150))' -n -e "(make-capture-frame)"
-super + shift + m
-      emacsclient -cn -F '(quote (name . "capture") (width  . 120) (height . 30) (left . 150))' -e '(mu4e)'
+super + i
+      emacsclient -c "~/Drive/sync/gtd/a.org"
+
 
 #htop
 super + F4
