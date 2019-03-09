@@ -5,15 +5,18 @@ var=$(echo -e "Apagar\nBloquear\nReiniciar\nCerrar sesi�
 
 if [ "$var" == 'Apagar' ]
 then
+    rm /tmp/bspwm-startup.lock
     systemctl poweroff
 elif [ "$var" == 'Bloquear' ]
 then
     blurlock
 elif [ "$var" == 'Reiniciar' ]
 then
+    rm /tmp/bspwm-startup.lock
     systemctl reboot
 elif [ "$var" == 'Cerrar sesión' ]
 then
+    rm /tmp/bspwm-startup.lock
     bspc quit
 elif [ "$var" == 'Cancelar' ]
 then
