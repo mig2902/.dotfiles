@@ -38,7 +38,7 @@ var sites = {
 				"r/unixporn"			: "https://www.reddit.com/r/unixporn/",
 				"Spotify"			: "https://open.spotify.com/",
 				"YouTube"			: "https://www.youtube.com/",
-				"Arch Wiki"				: "https://wiki.archlinuc.org/",
+				"Arch Wiki"				: "https://wiki.archlinux.org/",
 				"Emacs Wiki"			: "https://www.emacswiki.org",
 			},
 
@@ -51,6 +51,7 @@ var sites = {
 
 			"Herramientas": {
 			    "Gmail" : "https://mail.google.com",
+			    "Pcloud" : "https://my.pcloud.com/#page=filemanager",
 			    "Google Drive" : "https://grive.google.com",
 			    "Diccionario" : "https://dle.rae.es/?w=diccionario",
 			    "Clima" : "https://openweathermap.org/city/4000900",
