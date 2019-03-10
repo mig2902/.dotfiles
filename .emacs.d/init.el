@@ -197,6 +197,10 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
   :init
   (which-key-mode))
 
+;; ===== hydra =======
+(use-package hydra
+  :ensure t)
+
 ;; ==== Ivy ====
 (use-package ivy
   :config
@@ -219,6 +223,45 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
 
 
 ;;==== elfeed ====
+(defun elfeed-mark-all-as-read ()
+      (interactive)
+      (mark-whole-buffer)
+      (elfeed-search-untag-all-unread))
+
+;;functions to support syncing .elfeed between machines
+;;makes sure elfeed reads index from disk before launching
+(defun bjm/elfeed-load-db-and-open ()
+  "Wrapper to load the elfeed db from disk before opening"
+  (interactive)
+  (elfeed-db-load)
+  (elfeed)
+  (elfeed-search-update--force))
+
+;;write to disk when quiting
+(defun bjm/elfeed-save-db-and-bury ()
+  "Wrapper to save the elfeed db to disk before burying buffer"
+  (interactive)
+  (elfeed-db-save)
+  (quit-window))
+
+(defhydra mz/hydra-elfeed ()
+   "filter"
+   ("n" (elfeed-search-set-filter "@6-months-ago +noticias") "noticias")
+   ("m" (elfeed-search-set-filter "@6-months-ago +mexico") "mexico")
+   ("b" (elfeed-search-set-filter "@6-months-ago +bcs") "bcs")
+   ("t" (elfeed-search-set-filter "@6-months-ago +tech") "tech")
+   ("l" (elfeed-search-set-filter "@6-months-ago +linux") "linux")
+   ("j" (elfeed-search-set-filter "@6-months-ago +manjaro") "manjaro")
+   ("r" (elfeed-search-set-filter "@6-months-ago +metal") "metal")
+   ("a" (elfeed-search-set-filter "@6-months-ago +android") "android")
+   ("g" (elfeed-search-set-filter "@6-months-ago +games") "games")
+   ("e" (elfeed-search-set-filter "@6-months-ago +emacs") "emacs")
+   ("A" (elfeed-search-set-filter "@6-months-ago") "All")
+   ("T" (elfeed-search-set-filter "@1-day-ago") "Today")
+  ("Q" bjm/elfeed-save-db-and-bury "Quit Elfeed" :color blue)
+   ("q" nil "quit" :color blue)
+   )
+
 (use-package elfeed
   :ensure t
   :bind ( :map elfeed-search-mode-map
@@ -226,17 +269,41 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
 	       ("Q" . bjm/elfeed-save-db-and-bury)
 	       ("m" . elfeed-toogle-star)
 	       ("M" . elfeed-toogle-star)
+	       ("ñ" . mz/hydra-elfeed/body)
 	       )
 )
-
-;(use-package elfeed-goodies
-;  :ensure t
-;  :init
-;  (elfeed-goodies/setup))
-(use-package elfeed-org
+(setq elfeed-feeds
+      '( ;; ==== NOTICIAS ======
+	("http://www.eluniversal.com.mx/rss/mexico.xml" noticias mexico)
+	("http://feeds.feedburner.com/proceso" noticias mexico)
+	("http://www.reforma.com/rss/portada.xml" noticias  mexico)
+	("http://www.bcsnoticias.mx/feed/" noticias  bcs)
+	("http://colectivopericu.wordpress.com/feed/" noticias  bcs)
+	("http://www.elpais.com/rss/feed.html?feedId=1022" noticias )
+	;; ===== TECNOLOGÍA =====
+	("http://www.theverge.com/rss/full.xml" tech)
+	("http://www.xatakamovil.com/atom.xml" tech android)
+	("http://www.xatakandroid.com/index.xml" tech android)
+	("http://es.engadget.com/rss.xml" tech)
+	("http://www.genbeta.com/index.xml" tech)
+	("http://www.elandroidelibre.com/feed/" tech android)
+	("https://manjaro.org/feed.xml" tech linux manjaro)
+	("https://blog.xfce.org/feed" tech linux)
+	;; ===== METAL =====
+	("http://www.metalsucks.net/feed/rss/" metal)
+	("http://feeds2.feedburner.com/metalinjection" metal)
+	;; ===== VIDEOJUEGOS ======
+	("http://www.teamfortress.com/rss.xml" games)
+	("http://feeds.ign.com/ign/games-all" games)
+	("http://www.vandal.net/cgi-bin/xml.cgi" games)
+	("http://www.eurogamer.es/rss/eurogamer_frontpage_feed.rss" games)
+	("http://www.3djuegos.com/universo/rss/rss.php?plats=1-2-3-4-5-6-7&tipos=noticia-analisis-avance-video-imagenes-demo&fotos=no&limit=20" games)
+))
+(use-package elfeed-goodies
   :ensure t
   :init
-  (elfeed-org))
+  (elfeed-goodies/setup))
+
 
 ;;==== IDO-vertical =====
 ;(use-package ido-vertical-mode
@@ -756,7 +823,7 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
      ("\\.pdf\\'" . "zathura %s"))))
  '(package-selected-packages
    (quote
-    (elfeed-org elfeed-goodies evil-org org-super-agenda evil-collection all-the-icons-ivy all-the-icons-dired all-the-icons smtpmail-multi frames-only-mode flymd yequake noflet evil-magit lua-mode counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme elfeed org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
+    (elfeed-goodies elfeed evil-org org-super-agenda evil-collection all-the-icons-ivy all-the-icons-dired all-the-icons smtpmail-multi frames-only-mode flymd yequake noflet evil-magit lua-mode counsel pdf-tools nov powerline solarized-theme magit helm-projectile swiper-helm mu4e-alert citeproc-org ox-word ox-pandoc auctex org-ref neotree spaceline smart-mode-line-atom-one-dark-theme smart-mode-line airline-themes evil rainbow-delimiters rainbow-delimeters expand-region auto-complete try foo 2048-game chess ace-window ztree counsel-projectile projectile org-beamer-mode demo-it latex-math-preview yasnippet-snippets yasnippet markdown-preview-mode markdown-mode+ markdown-mode epresent htmlize ox-reveal company dashboard switch-window avy smex ido-vertical-mode spacemacs-theme org-bullets nord-theme zenburn-theme telephone-line which-key use-package rich-minority python material-theme arjen-grey-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pdf-view-resize-factor 1.05)
  '(pos-tip-background-color "#073642")
