@@ -392,7 +392,8 @@ format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #5294E2
 
-label = %date% %time%
+label =%{A3:gsimplecal & disown:}%date% %time%%{A} %{A}
+;label = %date% %time%
 format-background = #BF6715
 label-foreground = ${root.foreground}
 
@@ -565,6 +566,14 @@ menu-2-1-exec = menu-open-0
 
 ;======================================
 
+;========= internet ====================
+[module/red]
+type = custom/script
+exec = ~/.config/polybar/scripts/check-network
+click-left = networkmanager_dmenu &
+click-right = networkmanager_dmenu &
+label-padding = 1
+tail = true
 
 ;========= spotify =====================
 [module/spotify]
@@ -625,7 +634,7 @@ format-prefix = " ﮋ "
 format-prefix-foreground = #F1C124
 label = "%output% " 
 ;format-underline = #D1B927
-
+click-left = termite -e "sudo pacman -Syuu"
 exec = ~/.config/polybar/scripts/updates-arch.sh
 interval = 600
 
