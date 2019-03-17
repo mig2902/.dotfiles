@@ -50,7 +50,7 @@ alias E="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
 
 ###### NNN #################
 export NNN_TRASH=1
-export NNN_OPS_PROG=1
+#export NNN_OPS_PROG=1
 export NNN_SCRIPT=/home/equipo/scripts
 export NNN_BMS='h:~;r:/run/media/equipo;d:~/Drive;D:~/Descargas;c:~/.config'
 export LC_COLLATE="C"

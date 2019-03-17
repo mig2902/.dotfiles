@@ -43,7 +43,7 @@ super + F2
 super + f
 #      termite -e ranger
 #      termite -e lf
-       termite -e nnn
+       termite -e ~/scripts/nwrap
 
 #Spotify
 super + F5
@@ -64,10 +64,13 @@ super + shift + m
 
 # emacs gtd
 super + c; c
-      emacsclient -c -F '(quote (name . "capture") (width  . 120) (height . 30) (left . 150))' -n -e "(make-capture-frame)"
+      emacsclient -c -F '(quote (name . "capture") (width  . 120) (height . 30) (left . 150))' -e "(make-capture-frame)"
 super + i
-      emacsclient -c "~/Drive/sync/gtd/a.org"
+      emacsclient -c -n "~/Drive/sync/gtd/a.org"
 
+# emacs elfeed
+super + n
+      emacsclient -c -e '(elfeed)'
 
 #htop
 super + F4
