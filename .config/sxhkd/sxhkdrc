@@ -70,7 +70,7 @@ super + i
 
 # emacs elfeed
 super + n
-      emacsclient -c -e '(elfeed)'
+      termite -e newsboat
 
 #htop
 super + F4

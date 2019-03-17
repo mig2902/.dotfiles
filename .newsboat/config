@@ -1,0 +1,13 @@
+browser links %u
+
+
+bind-key l open
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key J next-feed
+bind-key K prev-feed
+bind-key g home
+bind-key G end
+bind-key ^d pagedown
+bind-key ^u pageup
