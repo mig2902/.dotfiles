@@ -36,7 +36,7 @@ bspc rule -a Sxiv state=floating
 bspc rule -a mpv state=floating
 bspc rule -a Qalculate-gtk state=floating
 bspc rule -a '*:libreofficedev' state=tiled
-bspc rule -a '*:soffice' state=tiled
+#bspc rule -a '*:soffice' state=tiled
 bspc rule -a Emacs:capture state=floating sticky=on
 bspc rule -a Emacs:mu4e state=floating sticky=on
 bspc rule -a Emacs:agenda state=floating sticky=on

@@ -52,7 +52,7 @@ var sites = {
 			"Herramientas": {
 			    "Gmail" : "https://mail.google.com",
 			    "Pcloud" : "https://my.pcloud.com/#page=filemanager",
-			    "Google Drive" : "https://grive.google.com",
+			    "Google Drive" : "https://drive.google.com",
 			    "Diccionario" : "https://dle.rae.es/?w=diccionario",
 			    "Clima" : "https://openweathermap.org/city/4000900",
 			    "ZoteroBib" : "https://zbib.org/"
