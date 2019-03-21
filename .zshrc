@@ -1,5 +1,11 @@
   export ZSH="/home/equipo/.oh-my-zsh"
 
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+(cat ~/.cache/wal/sequences &)
+
 ##### oh my zsh ###########
 ZSH_THEME="spaceship"
 SPACESHIP_CHAR_SYMBOL="  "
