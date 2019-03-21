@@ -70,7 +70,7 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
   (setq nord-region-highlight "frost")
   (setq nord-comment-brightness 15)
   :init
-;  (load-theme 'nord t))
+  (load-theme 'nord t)
   )
 
 ))

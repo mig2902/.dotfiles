@@ -23,11 +23,12 @@
 ; Declaración de colores
 
 ;background = ${xrdb:color0:#222}
-background = #DE313D4A
+background = #BB0E132F
 ;background =
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+;foreground = #dfdfdf
+foreground = #e0afdb
 foreground-alt = #555
 primary = #BF616A
 secondary = #e60053
@@ -92,13 +93,13 @@ font-4 = Material Design Icons:style=Regular:pixelsize=16;1
 ;posición de los módulos
 modules-left = i3 bspwm  xwindow
 modules-center = 
-modules-right = sep-spo spotify sep-vol pulseaudio sep-kde kde sep-arch arch sep-date date redshift
+modules-right = spotify pulseaudio kde  arch date redshift
 
 ;posición de la bandeja de notificaciones
 tray-position = right
 tray-padding = 1
 ;tray-background = #bf6a87
-tray-background = #BF6715
+;tray-background = #BF6715
 tray-underline = #1C98C9
 ;tray-detached = true
 ;no sepo
@@ -181,7 +182,7 @@ ws-icon-7 = 8;
 format = <label-state> <label-mode> 
 
 label-focused = "利" 
-label-focused-foreground = #FF930C
+label-focused-foreground = #6756D2
 ;label-focused-underline= #FFFFFF
 
 label-focused-padding = 0.5
@@ -388,13 +389,13 @@ date-alt = " %A %e de %B de %Y,"
 time = "%H:%M "
 time-alt = "%H:%M:%S "
 
-format-prefix =
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+format-prefix-foreground =
 ;format-underline = #5294E2
 
 label =%{A3:gsimplecal & disown:}%date% %time%%{A} %{A}
 ;label = %date% %time%
-format-background = #BF6715
+;format-background = #BF6715
 label-foreground = ${root.foreground}
 
 
@@ -646,7 +647,8 @@ exec = ~/.config/polybar/scripts/redshift-echo.sh
 click-left = ~/.config/polybar/scripts/redshift.sh
 tail = true
 ;format-underline = #AA2805
-format-background = #BF6715
+;format-background = #BF6715
+format-foreground = #FFFFFF
 
 ;=========== workspace name bspwm =============
 [module/wsn]
@@ -689,14 +691,14 @@ type = custom/text
 content = "%{T3}%{T-}"
 content-font = 3
 content-foreground = #BF6715
-content-background = #313D4A
+content-background = #BB0E132F
 
 
 [module/sep-arch]
 type = custom/text
 content = "%{T3}%{T-}"
 content-font = 3
-content-foreground = #313D4A
+content-foreground = ${colors.background}
 content-background = #BF6715
 
 
@@ -705,7 +707,7 @@ content-background = #BF6715
 type = custom/text
 content = "%{T3}%{T-}"
 content-font = 2
-content-foreground = #313D4A
+content-foreground = #BB0E132F
 content-background = #9DB788
 
 
@@ -714,20 +716,21 @@ type = custom/text
 content = "%{T3}%{T-}"
 content-font = 3
 content-foreground = #9DB788
+content-background = #BB0E132F
 
 [module/sep-kde]
 type = custom/text
 content = "%{T3}%{T-}"
 content-font = 3
 content-foreground = #BF6715
-content-background = 
+content-background = #BB0E132F
 
 [module/sep-mu]
 type = custom/text
 content = "%{T3}%{T-}"
 content-font = 3
 content-foreground = #BF6715
-content-background = 
+content-background = #BB0E132F
 
 
 
