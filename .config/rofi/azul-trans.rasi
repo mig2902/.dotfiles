@@ -12,32 +12,27 @@ configuration {
 }
 
 * {
-	active-background: #6756D2;
-	active-foreground: @foreground;
-	normal-background: @background;
-	normal-foreground: @foreground;
-	urgent-background: #6756D2;
-	urgent-foreground: @foreground;
-	
-	alternate-active-background: @background;
-	alternate-active-foreground: @foreground;
-	alternate-normal-background: @background;
-	alternate-normal-foreground: @foreground;
-	alternate-urgent-background: @background;
-	alternate-urgent-foreground: @foreground;
-	
-	selected-active-background: #4232A0;
-	selected-active-foreground: @foreground;
-	selected-normal-background: #342B70;
-	selected-normal-foreground: @foreground;
-	selected-urgent-background: #8E3E83;
-	selected-urgent-foreground: @foreground;
-	
-	background-color: @background;
-	background: #0E132F;
-	foreground: #e0afdb;
-	border-color: @background;
-        spacing: 2;
+	background-color:            rgba(18, 30, 37, 0.5);
+	text-color:                  #d3d7cf;
+	selbg:                       #005688;
+	actbg:                       rgba(22, 37, 46, 0.5);
+	urgbg:                       #e53935;
+	winbg:			     #26c6da;
+
+	selected-normal-foreground:  @winbg;
+	normal-foreground:           @text-color;
+	selected-normal-background:  @actbg;
+	normal-background:           @background-color;
+
+	selected-urgent-foreground:  @background-color;
+	urgent-foreground:           @text-color;
+	selected-urgent-background:  @urgbg;
+	urgent-background:           @background-color;
+
+	selected-active-foreground:  @winbg;
+	active-foreground:           @text-color;
+	selected-active-background:  @actbg;
+	active-background:           @selbg;
 
 	line-margin:                 2;
 	line-padding:                2;
