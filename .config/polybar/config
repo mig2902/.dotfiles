@@ -585,8 +585,8 @@ format-prefix = " "
 format = "<label> "
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
 ;format-underline = #99B898
-format-background = #99B898
-format-foreground = #FFFFFF
+;format-background = #99B898
+;format-foreground = #FFFFFF
 click-right = playerctl play-pause
 click-left = bspc desktop -f ^8 
 ;======================================
@@ -608,7 +608,7 @@ format-prefix = "  "
 label = "%output%% "
 exec = ~/.config/polybar/scripts/kde-bat
 interval = 300
-format-background = #BF6715
+;format-background = #BF6715
 ;format-underline = #005688
 
 click-left = ~/scripts/kdeconnect-rofi
