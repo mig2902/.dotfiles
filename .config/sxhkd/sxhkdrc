@@ -68,13 +68,15 @@ super + c; c
 super + i
       emacsclient -c -n "~/Drive/sync/gtd/a.org"
 
-# emacs elfeed
+# Newsboat
 super + n
-      termite -e newsboat
+      termite -e ~/scripts/newsboat-run
+
+
 
 #htop
 super + F4
-      termite -e htop
+      termite -e ~/scripts/htop-run
 
 #Screenshots
 Print

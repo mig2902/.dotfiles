@@ -1,0 +1,3 @@
+[submodule "homepage/dome"]
+	path = homepage/dome
+	url = https://gitlab.com/Capuno/dome.git

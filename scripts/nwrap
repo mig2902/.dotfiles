@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+(cat ~/.cache/wal/sequences &)
+
 export NNN_TRASH=1
 #export NNN_OPS_PROG=1
 export NNN_SCRIPT=/home/equipo/scripts/nnn/
