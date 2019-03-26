@@ -23,12 +23,12 @@
 ; Declaración de colores
 
 ;background = ${xrdb:color0:#222}
-background = #BB0E132F
+background = #BB120f1c
 ;background =
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 ;foreground = #dfdfdf
-foreground = #e0afdb
+foreground = #e0aca2
 foreground-alt = #555
 primary = #BF616A
 secondary = #e60053
@@ -182,7 +182,7 @@ ws-icon-7 = 8;
 format = <label-state> <label-mode> 
 
 label-focused = "利" 
-label-focused-foreground = #6756D2
+label-focused-foreground = #6F3349
 ;label-focused-underline= #FFFFFF
 
 label-focused-padding = 0.5
