@@ -185,8 +185,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#0B1A1E" :foreground "#acc3c1" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "PfEd" :family "Fantasque Sans Mono"))))
- '(cursor ((t (:background "#acc3c1"))))
+ '(default ((t (:inherit nil :stipple nil :background "#1e112b" :foreground "#e3c4ce" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "PfEd" :family "Fantasque Sans Mono"))))
+ '(cursor ((t (:background "#e3c4ce"))))
  '(doom-modeline-evil-emacs-state ((t (:inherit doom-modeline-warning))))
  '(doom-modeline-evil-insert-state ((t (:inherit doom-modeline-urgent :foreground "sea green"))))
  '(doom-modeline-evil-motion-state ((t (:inherit doom-modeline-buffer-path :foreground "dark blue"))))
@@ -194,12 +194,12 @@
  '(doom-modeline-evil-operator-state ((t (:inherit doom-modeline-buffer-path :foreground "violet"))))
  '(doom-modeline-evil-replace-state ((t (:inherit doom-modeline-buffer-modified :foreground "black"))))
  '(doom-modeline-evil-visual-state ((t (:inherit doom-modeline-buffer-file :foreground "dark orange"))))
- '(fringe ((t (:background "#0B1A1E" :foreground "#D8DEE9"))))
+ '(fringe ((t (:background "#1e112b" :foreground "#D8DEE9"))))
  '(header-line ((t (:background "#3B4371" :foreground "#D8DEE9"))))
  '(highlight ((t (:background "#194C5E" :foreground "#e1e1e0"))))
- '(hl-line ((t (:inherit nil :background "#194C5E"))))
+ '(hl-line ((t (:inherit nil :background "#504684"))))
  '(line-number-current-line ((t (:inherit \#D8DEE9))))
- '(mode-line ((t (:background "#0B1A1E" :foreground "#acc3c1"))))
+ '(mode-line ((t (:background "#1e112b" :foreground "#e3c4ce"))))
  '(rainbow-delimiters-depth-1-face ((t (:inherit rainbow-delimiters-base-face :foreground "gray45"))))
  '(rainbow-delimiters-depth-2-face ((t (:inherit rainbow-delimiters-base-face :foreground "dark violet"))))
  '(rainbow-delimiters-depth-3-face ((t (:inherit rainbow-delimiters-base-face :foreground "goldenrod"))))

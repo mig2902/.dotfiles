@@ -35,7 +35,7 @@ configuration {
     selected-urgent-foreground: @foreground;
 
     background-color: @background;
-    background: #1e112bBB;
+    background: #1e112bBF;
     foreground: #e3c4ce;
     border-color: @background;
     spacing: 2;
@@ -50,8 +50,8 @@ configuration {
 }
 
 window {
-	location:	 north;
-	anchor:		north;
+	location:	 center;
+	anchor:		 center;
 	x-offset:	 0px;
 	y-offset:	 0px;
 	height:		 50%;
@@ -65,8 +65,8 @@ window {
 
 mainbox {
 	spacing:  0em;
-	padding: 250px 350px;
-	width:900px;
+	padding: -10px;
+	width:200px;
 	children: [ inputbar, listview, sidebar ];
 	expand: true;
 	background-color: transparent;
@@ -83,7 +83,7 @@ button selected {
 
 inputbar {
      children: [ entry ];
-     background-color: transparent;
+     background-color: @background;
 }
 
 textbox-prompt-colon {                                                
@@ -93,7 +93,7 @@ textbox-prompt-colon {
  }  
 
 listview {
-	spacing: 2em;
+	spacing: 0em;
 	dynamic: false;
 	cycle:   true;
 	background-color: transparent;
@@ -111,7 +111,6 @@ element {
 entry {
 	expand:         true;
 	text-color:     @normal-foreground;
-	background: transparent;
 	vertical-align: 1;
 	padding:        12px;
 	font:            "Fantasque Sans Mono 13";
