@@ -81,10 +81,11 @@ if [ ! -f $startup_lock_file ]; then
 # Agregar las aplicaciones de autoarranque debajo de esta línea
 #==========================================================================================================================
 compton -b --config ~/.config/compton.conf &
-nm-applet &
+#nm-applet &
 xfce4-power-manager &
 pcloud &
-clipit &
+#clipit &
+copyq &
 conky -c ~/conkys/purple &
 xautolock -locker i3lock-fancy -f Fantasque-Sans-Mono-Regular -t Contraseña, mode "default" &
 emacs --daemon &

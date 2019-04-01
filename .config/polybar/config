@@ -128,7 +128,7 @@ cursor-scroll = ns-resize
 ;muestra el nombre de la ventana activa
 type = internal/xwindow
 format-padding = 2
-label = %title:0:40:...%
+label = %title:0:30:...%
 
 ;==========================================
 
@@ -655,7 +655,7 @@ format-foreground = ${colors.foreground}
 ;=========== apagado ============
 [module/apagar]
 type= custom/text
-content = " "
+content = " "
 click-left = ~/scripts/apagar
 
 ;=========== workspace name bspwm =============
@@ -767,3 +767,45 @@ content-background =
 type = custom/text
 content = " "
 click-left = rofi -show drun -location 1 -theme rofi -eh 2 -lines 5 -show-icons -icon-theme Flat-remix Dark
+
+
+[module/menu-apps]
+type = custom/menu
+
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = true
+
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Available exec commands:
+;   menu-open-LEVEL
+;   menu-close
+; Other commands will be executed using "/usr/bin/env sh -c $COMMAND"
+
+menu-0-5 = "  "
+menu-0-5-exec = bspc desktop -f prev.local
+menu-0-0 = " M "
+menu-0-0-exec = xdotool keydown super
+menu-0-1 = " M "
+menu-0-1-exec = xdotool keyup super
+menu-0-2 = "  "
+menu-0-2-exec = bspc desktop -l next
+menu-0-3 = "  "
+menu-0-3-exec = bspc node -c
+menu-0-4 = "  "
+menu-0-4-exec = bspc node -t floating
+menu-0-6 = "  "
+menu-0-6-exec = bspc desktop -f next.local
+menu-0-7 = "  "
+menu-0-7-exec = bspc node -t tiled
+menu-0-8 = "  "
+menu-0-8-exec = bspc node -t fullscreen
+
+label-open = "  "
+label-close = " "
+
+; Optional item separator
+; Default: none
+label-separator = 
