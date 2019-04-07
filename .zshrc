@@ -6,6 +6,7 @@
 # ( ) # Hide shell job control messages.
 (cat ~/.cache/wal/sequences &)
 
+
 ##### oh my zsh ###########
 ZSH_THEME="spaceship"
 SPACESHIP_CHAR_SYMBOL="  "
@@ -51,19 +52,21 @@ alias emc="emacsclient -c"
 alias emt="emacsclient -t"
 alias ranger="~/.sources/ranger/ranger.py"
 #neofetch | lolcat
-neofetch --ascii "$(fortune-es|cowsay -W 29)" | lolcat 
+neofetch --ascii "$(fortune-es|cowsay -W 29)"
 #neofetch --ascii "$(fortune jojos|cowsay -W 29)" | lolcat 
 alias E="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
 
 
 ###### NNN #################
 export NNN_TRASH=1
+export NNN_OPENER_DETACH=1
 #export NNN_OPS_PROG=1
 export NNN_SCRIPT=/home/equipo/scripts/nnn/
 export NNN_BMS='h:~;r:/run/media/equipo;d:~/Drive;D:~/Descargas;c:~/.config'
 export LC_COLLATE="C"
 export NNN_CONTEXT_COLORS="3214"
-export NNN_IDLE_TIMEOUT=900
+#export NNN_IDLE_TIMEOUT=900
 export NNN_PLAIN_FILTER=1
 export NNN_COPIER="/home/equipo/scripts/nnn/copier"
 export NNN_TMPFILE=/tmp/nnn
+#export NNN_OPENER=mimeopen

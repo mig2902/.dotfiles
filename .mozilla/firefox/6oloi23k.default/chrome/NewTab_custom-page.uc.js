@@ -9,7 +9,7 @@
 (function() {
 
   // IMPORTANT: when there's no filename, be sure to include a trailing slash at the end.
-  const mypage = "file:///home/equipo/Documentos/.dotfiles/homepage/dome/index.html";
+  const mypage = "file:///home/equipo/Documentos/.dotfiles/homepage/tilde-enhanced/index.html";
   // Don't place the caret in the location bar. Useful if you want a page's search box to have focus instead.
   var removefocus = "yes";
   // Clear the page's URL from the location bar. Normally not needed, as this should already be the default behavior.

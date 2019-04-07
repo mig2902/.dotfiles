@@ -3,6 +3,7 @@
 (cat ~/.cache/wal/sequences &)
 
 export NNN_TRASH=1
+export NNN_OPENER_DETACH=1
 #export NNN_OPS_PROG=1
 export NNN_SCRIPT=/home/equipo/scripts/nnn/
 export NNN_BMS='h:~;r:/run/media/equipo;d:~/Drive;D:~/Descargas;c:~/.config'

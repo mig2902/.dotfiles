@@ -66,6 +66,7 @@ bspc rule -a '*:libreofficedev' state=tiled
 bspc rule -a Emacs:capture state=floating sticky=on
 bspc rule -a Emacs:mu4e state=floating sticky=on
 bspc rule -a Emacs:agenda state=floating sticky=on
+bspc rule -a Steam state=floating
 
 #############
 #AUTOSTART
