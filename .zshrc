@@ -9,11 +9,14 @@
 
 ##### oh my zsh ###########
 ZSH_THEME="spaceship"
-SPACESHIP_CHAR_SYMBOL="  "
+SPACESHIP_CHAR_SYMBOL=" "
 SPACESHIP_GIT_PREFIX="en "
 SPACESHIP_GIT_SYMBOL=
 SPACESHIP_GIT_BRANCH_PREFIX=" "
 SPACESHIP_EXEC_TIME_PREFIX="Tiempo: "
+SPACESHIP_VI_MODE_SHOW="true"
+SPACESHIP_VI_MODE_INSERT=""
+SPACESHIP_VI_MODE_NORMAL="<N>"
 
 # Bullet-train custom
 BULLETTRAIN_PROMPT_ORDER=(
@@ -25,6 +28,7 @@ BULLETTRAIN_PROMPT_ORDER=(
 
 plugins=(
   git
+  zsh-vim-mode
 )
 BULLETTRAIN_CONTEXT_DEFAULT_USER=equipo
 
@@ -37,7 +41,7 @@ BULLETTRAIN_CONTEXT_DEFAULT_USER=equipo
 # ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
-# HIST_STAMPS="mm/dd/yyyy"
+ HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 
@@ -70,3 +74,8 @@ export NNN_PLAIN_FILTER=1
 export NNN_COPIER="/home/equipo/scripts/nnn/copier"
 export NNN_TMPFILE=/tmp/nnn
 #export NNN_OPENER=mimeopen
+
+
+
+
+bindkey -v

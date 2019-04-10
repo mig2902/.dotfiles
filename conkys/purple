@@ -81,8 +81,8 @@ default_shade_color = 'black',
 draw_outline = false,-- amplifies text if yes
 default_outline_color = 'black',
 
-default_color = '#ffffff',-- PureWhite
-color0 = '#9B60D0',-- purple
+default_color = '#cadde7',-- PureWhite
+color0 = '#D99BAB',-- purple
 color1 = '#778899',-- LightSlateGray
 color2 = '#D8BFD8',-- Thistle
 color3 = '#9ACD32',-- YellowGreen
@@ -178,7 +178,7 @@ ${color0} ${execi 300 LANG=es_MX.utf8 LC_TIME=es_MX.utf8 date +"%d"}${color}\
 
 ${goto 24}\
 ${font Roboto:Light:pixelsize=12}\
-${image ~/conkys/syclo/images/purple/hdd.png -p 20,160 -s 16x16} ${offset 20}${fs_used /home} / ${fs_size /home}\
-${image ~/conkys/syclo/images/purple/ram.png -p 140,160 -s 16x16} ${offset 45}$mem / $memmax\
-${image ~/conkys/syclo/images/purple/cpu.png -p 260,160 -s 16x16} ${offset 45}${cpu cpu0}%
+${image ~/conkys/syclo/images/material/hdd.png -p 20,160 -s 16x16} ${offset 20}${fs_used /home} / ${fs_size /home}\
+${image ~/conkys/syclo/images/material/ram.png -p 140,160 -s 16x16} ${offset 45}$mem / $memmax\
+${image ~/conkys/syclo/images/material/cpu.png -p 260,160 -s 16x16} ${offset 45}${cpu cpu0}%
 ]];

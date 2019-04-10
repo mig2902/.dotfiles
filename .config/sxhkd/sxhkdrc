@@ -19,7 +19,7 @@
 
 #Terminal
 super + Return
-      termite
+      st
 
 #Rofi
 super + d
@@ -43,7 +43,7 @@ super + F2
 super + f
 #      termite -e ranger
 #      termite -e lf
-       termite -e ~/scripts/nwrap
+       st -e ~/scripts/nwrap
 
 #Spotify
 super + F5
@@ -70,13 +70,11 @@ super + i
 
 # Newsboat
 super + n
-      termite -e ~/scripts/newsboat-run
-
-
+      st -e ~/scripts/newsboat-run
 
 #htop
 super + F4
-      termite -e ~/scripts/htop-run
+      st -e ~/scripts/htop-run
 
 #Screenshots
 Print
@@ -217,7 +215,7 @@ super + alt + shift + {h,j,k,l}
       bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 #Rotar la interfaz
-super + shift + {comma,period}
+super + shift + {period,comma}
    bspc node @/ -R {90,270}
 
 
@@ -236,5 +234,3 @@ super + alt + {1-9}
 #Cancelar split manual
 super + alt + space
       bspc node -p cancel
-
-
