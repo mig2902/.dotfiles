@@ -13,6 +13,6 @@ export NNN_CONTEXT_COLORS="3214"
 export NNN_PLAIN_FILTER=1
 export NNN_COPIER="/home/equipo/scripts/nnn/copier"
 export NNN_TMPFILE=/tmp/nnn
-#export NNN_OPENER=mimeopen
+export NNN_OPENER=mimeopen
 
 nnn

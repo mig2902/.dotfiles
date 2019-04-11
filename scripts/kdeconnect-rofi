@@ -11,7 +11,7 @@ menu=$(echo -e "Enviar\nEncontrar\nPing\nSMS" | rofi -dmenu -width 15 -lines 5 -
 
 if [ "$menu" == 'Enviar' ]
 then
-    termite -e 'lf -selection-path /tmp/kde-files'
+    st -e nnn -p /tmp/kde-files
     #Descomentar si se desea usar ranger
     #termite -e ranger --choosefiles=/tmp/kde-files
     if [ $(find /tmp/kde-files) ]
