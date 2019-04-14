@@ -50,10 +50,10 @@ minimum_width = 420,
 minimum_height = 280,
 maximum_width = 420,
 
-gap_x = 0,--## left | right
-gap_y = -70,--## up | down
+gap_x = -50,--## left | right
+gap_y = 40,--## up | down
 
-alignment = 'bottom_left',
+alignment = 'top_right',
 
 --######################  End Window Settings  ###
 
@@ -82,7 +82,7 @@ draw_outline = false,-- amplifies text if yes
 default_outline_color = 'black',
 
 default_color = '#FBFBE3',
-color0 = '#3198F3',-- purpleh
+color0 = '#9A60CF',-- purpleh
 color1 = '#778899',-- LightSlateGray
 color2 = '#D8BFD8',-- Thistle
 color3 = '#9ACD32',-- YellowGreen

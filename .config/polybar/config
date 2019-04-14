@@ -23,12 +23,12 @@
 ; Declaración de ccolores
 
 ;background = ${xrdb:color0:#222}
-background = #151930
+background = #BB1e112b
 ;background =
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 ;foreground = #dfdfdf
-foreground = #ebc9dd
+foreground = #e3c4ce
 
 foreground-alt = #555
 primary = #BF616A
@@ -183,7 +183,7 @@ ws-icon-7 = 8;
 format = <label-state> <label-mode> 
 
 label-focused = "利" 
-label-focused-foreground = 3198F3
+label-focused-foreground = #BF3F48
 ;label-focused-underline= #FFFFFF
 
 label-focused-padding = 0.5
@@ -236,7 +236,7 @@ label-mode-background =
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-;label-focused-background = ${module/bspwm.label-focused-background}
+;label-focused-background = $
 label-focused-background =
 label-focused-underline = #E2C487
 label-focused-padding = ${module/bspwm.label-focused-padding}
