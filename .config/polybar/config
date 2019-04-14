@@ -23,12 +23,12 @@
 ; Declaración de ccolores
 
 ;background = ${xrdb:color0:#222}
-background = #00090C0F
+background = #151930
 ;background =
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 ;foreground = #dfdfdf
-foreground = #c9c5bb
+foreground = #ebc9dd
 
 foreground-alt = #555
 primary = #BF616A
@@ -45,9 +45,9 @@ margin-bottom = 0
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100% ;largo
-height = 24 ;ancho
-;offset-x = 2%
-;offset-y = 0.3%
+height = 25 ;ancho
+;offset-x = 0.8%
+;offset-y = 0.15%
 radius = 0
 fixed-center = true ;no tengo idea
 enable-ipc = true
@@ -183,7 +183,7 @@ ws-icon-7 = 8;
 format = <label-state> <label-mode> 
 
 label-focused = "利" 
-label-focused-foreground = DA694E
+label-focused-foreground = 3198F3
 ;label-focused-underline= #FFFFFF
 
 label-focused-padding = 0.5

@@ -50,10 +50,10 @@ minimum_width = 420,
 minimum_height = 280,
 maximum_width = 420,
 
-gap_x = -60,--## left | right
-gap_y = 20,--## up | down
+gap_x = 0,--## left | right
+gap_y = -70,--## up | down
 
-alignment = 'top_right',
+alignment = 'bottom_left',
 
 --######################  End Window Settings  ###
 
@@ -81,8 +81,8 @@ default_shade_color = 'black',
 draw_outline = false,-- amplifies text if yes
 default_outline_color = 'black',
 
-default_color = '#c9c5bb',-- PureWhite
-color0 = '#DA694E',-- purple
+default_color = '#FBFBE3',
+color0 = '#3198F3',-- purpleh
 color1 = '#778899',-- LightSlateGray
 color2 = '#D8BFD8',-- Thistle
 color3 = '#9ACD32',-- YellowGreen
@@ -178,7 +178,7 @@ ${color0} ${execi 300 LANG=es_MX.utf8 LC_TIME=es_MX.utf8 date +"%d"}${color}\
 
 ${goto 24}\
 ${font Roboto:Light:pixelsize=12}\
-${image ~/conkys/syclo/images/material/hdd.png -p 20,160 -s 16x16} ${offset 20}${fs_used /home} / ${fs_size /home}\
-${image ~/conkys/syclo/images/material/ram.png -p 140,160 -s 16x16} ${offset 45}$mem / $memmax\
-${image ~/conkys/syclo/images/material/cpu.png -p 260,160 -s 16x16} ${offset 45}${cpu cpu0}%
+${image ~/conkys/syclo/images/material/hdd.png -p 20,164 -s 16x16} ${offset 20}${fs_used /home} / ${fs_size /home}\
+${image ~/conkys/syclo/images/material/ram.png -p 140,164 -s 16x16} ${offset 45}$mem / $memmax\
+${image ~/conkys/syclo/images/material/cpu.png -p 260,164 -s 16x16} ${offset 45}${cpu cpu0}%
 ]];

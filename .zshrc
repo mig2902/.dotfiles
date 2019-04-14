@@ -57,7 +57,7 @@ alias emt="emacsclient -t"
 alias ranger="~/.sources/ranger/ranger.py"
 #neofetch | lolcat
 neofetch --ascii "$(fortune-es|cowsay -W 29)"
-#neofetch --ascii "$(fortune jojos|cowsay -W 29)" | lolcat 
+#neofetch --ascii "$(fortune jojos eva|cowsay -W 29)" 
 alias E="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
 
 
