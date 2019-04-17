@@ -75,7 +75,4 @@ export NNN_COPIER="/home/equipo/scripts/nnn/copier"
 export NNN_TMPFILE=/tmp/nnn
 #export NNN_OPENER=mimeopen
 
-
-
-
 bindkey -v
