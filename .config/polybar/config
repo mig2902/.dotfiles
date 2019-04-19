@@ -217,7 +217,7 @@ label-floating = 
 ;label-locked-foreground = ${colors.moderate}
 ;label-private-foreground = ${colors.urgent}
 
-format-background = #3E2948
+;format-background = #3E2948
 ; Separator in between workspaces
 ;label-separator = " "
 ;===============================================

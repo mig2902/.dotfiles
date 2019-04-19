@@ -217,7 +217,11 @@ El directorio es ~/.emacs.d/backups/
       'other-window)
 (setq org-agenda-span 7)
 (setq org-agenda-start-on-weekday nil)
-(setq org-agenda-start-day "-1d")
+(setq calendar-day-name-array ["domingo" "lunes" "martes" "miércoles"
+                                 "jueves" "viernes" "sábado"])
+(setq calendar-month-name-array ["enero" "febrero" "marzo" "abril" "mayo"
+                                   "junio" "julio" "agosto" "septiembre"
+                                   "octubre" "noviembre" "diciembre"])
 #+END_SRC
 ** Agenda flotante
 #+BEGIN_SRC emacs-lisp
@@ -356,6 +360,12 @@ El directorio es ~/.emacs.d/backups/
 	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
 	       )
 )
+#+END_SRC
+** Cambiar todo-state con C-ñ
+#+BEGIN_SRC emacs-lisp
+  (eval-after-load 'org 
+		      '(define-key org-mode-map (kbd "C-ñ") 'org-todo)
+		      )
 #+END_SRC
 * Evil-mode
 #+BEGIN_SRC emacs-lisp
