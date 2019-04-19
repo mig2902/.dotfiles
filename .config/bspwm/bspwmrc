@@ -24,7 +24,7 @@ wal -R &
 # Usar los colores de pywal
 . "${HOME}/.cache/wal/colors.sh"
 
-bspc monitor -d 1 2 3 4 5 6 7 8
+bspc monitor -d 1 2 3 4 5 6
 bspc config border_width         3
 bspc config window_gap           8
 
@@ -41,12 +41,11 @@ bspc config presel_feedback_color "$color15"
 #REGLAS
 ##############
 
-bspc rule -a Gimp desktop='^6' follow=on
+bspc rule -a Gimp desktop='^5' follow=on
 bspc rule -a Screenkey manage=off
 bspc rule -a Firefox desktop='^2' follow=on
 bspc rule -a Chromium desktop='^2' follow=on
-bspc rule -a Spotify desktop='^8'
-bspc rule -a libreoffice desktop='^4' follow=on state=tiled
+bspc rule -a Spotify desktop='^6'
 bspc rule -a Lxappareance state=floating
 bspc rule -a Nitrogen state=floating
 bspc rule -a Lightdm-settings state=floating
@@ -63,9 +62,9 @@ bspc rule -a mpv state=floating
 bspc rule -a Qalculate-gtk state=floating
 bspc rule -a '*:libreofficedev' state=tiled
 #bspc rule -a '*:soffice' state=tiled
-bspc rule -a Emacs:capture state=floating sticky=on
-bspc rule -a Emacs:mu4e state=floating sticky=on
-bspc rule -a Emacs:agenda state=floating sticky=on
+bspc rule -a Emacs:capture state=floating
+bspc rule -a Emacs:mu4e state=floating
+bspc rule -a Emacs:agenda state=floating
 bspc rule -a Steam state=floating
 
 #############

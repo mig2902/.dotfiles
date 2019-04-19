@@ -1,4 +1,4 @@
-;=========================================================
+=========================================================
 ;
 ;                   ██          ██                      
 ; ██████           ░██  ██   ██░██                      
@@ -22,13 +22,9 @@
 [colors]
 ; Declaración de ccolores
 
-;background = ${xrdb:color0:#222}
-background = #BB1e112b
-;background =
+background = #BB171322
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
-;foreground = #dfdfdf
-foreground = #e3c4ce
+foreground = #bea4a9
 
 foreground-alt = #555
 primary = #BF616A
@@ -45,7 +41,7 @@ margin-bottom = 0
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100% ;largo
-height = 25 ;ancho
+height = 20 ;ancho
 ;offset-x = 0.8%
 ;offset-y = 0.15%
 radius = 0
@@ -57,8 +53,13 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 ;linea que aparece cuando se activa la opción underline
-line-size = 2
-line-color = #f00
+line-size = 1
+line-color = 
+
+border-bottom-size = 5
+border-top-size = 5
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
 
 ;separación respecto a la parte superior de la pantalla
 border-size = 
@@ -72,6 +73,7 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
+
 ;muestra la fecha en español
 locale = es_MX.UTF-8
 ;========================================
@@ -80,7 +82,7 @@ locale = es_MX.UTF-8
 
 font-0 = Fantasque Sans Mono:size=10;1
 font-1 = Material Design Icons:style=Regular:pixelsize=12;1
-font-2 = Powerline Extra Symbols:style=Regular:size=16;3
+font-2 = Powerline Extra Symbols:style=Regular:size=15;1
 font-3 = Weather Icons:style=Regular:size=10;1
 font-4 = Material Design Icons:style=Regular:pixelsize=16;1
 
@@ -92,9 +94,9 @@ font-4 = Material Design Icons:style=Regular:pixelsize=16;1
 ;========================
 
 ;posición de los módulos
-modules-left = i3 bspwm  xwindow
+modules-left = i3 bspwm xwindow
 modules-center = 
-modules-right = spotify pulseaudio kde arch date redshift red copy apagar
+modules-right = spotify sep pulseaudio sep kde  sep arch  sep date  sep red copy apagar sep
 
 ;posición de la bandeja de notificaciones
 tray-position = none
@@ -174,36 +176,40 @@ ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
 
 ;inline-mode = true
 format = <label-state> <label-mode> 
 
-label-focused = "利" 
+;label-focused = "瘝" 
+label-focused = %icon%
 label-focused-foreground = #BF3F48
-;label-focused-underline= #FFFFFF
+label-focused-overline = #8D4143
 
-label-focused-padding = 0.5
+label-focused-padding = 1
 
-label-occupied = "利"
-label-occupied-padding = 0.5
+label-occupied = %icon%
+;label-occupied = ""
+label-occupied-padding = 1
+label-occupied-foreground = #BF3F48
 
 label-urgent = %icon%!
 label-urgent-background = 
-label-urgent-padding = 0.5
+label-urgent-padding = 1
 
-label-empty = "吏"
+;label-empty = "吏"
+label-empty = %icon%
 label-empty-foreground = ${colors.foreground}
-label-empty-padding = 0.5
+label-empty-padding = 1
 
 label-monocle = 
 label-tiled = 
 ;label-fullscreen = 
 label-floating = 
-label-pseudotiled = P
+;label-pseudotiled = P
 ;label-locked = 
 ;label-sticky = 
 ;label-private = 
@@ -211,9 +217,9 @@ label-pseudotiled = P
 ;label-locked-foreground = ${colors.moderate}
 ;label-private-foreground = ${colors.urgent}
 
-format-background= ${colors.background}
+format-background = #3E2948
 ; Separator in between workspaces
-; label-separator = |
+;label-separator = " "
 ;===============================================
 
 ;==============  i3  =====================
@@ -396,9 +402,10 @@ format-prefix-foreground =
 
 label =%{A3:gsimplecal & disown:}%date% %time%%{A} %{A}
 ;label = %date% %time%
-;format-background = #BF6715
+format-background = #AC645E
 label-foreground = ${root.foreground}
 
+format-padding = 
 
 
 ;=================================
@@ -439,7 +446,7 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
-format-volume-background =
+format-volume-background = #6B4D68 
 click-right = exec pavucontrol & 
 ;========================================
 
@@ -574,6 +581,7 @@ type = custom/script
 exec = ~/.config/polybar/scripts/check-network
 click-left = ~/scripts/check-network-rofi &
 click-right = ~/scripts/check-network-rofi &
+format-background = #483A54
 label-padding = 0
 tail = true
 
@@ -582,14 +590,14 @@ tail = true
 ; muestra la información de spotify
 type = custom/script
 interval = 1
-format-prefix = " " 
+format-prefix = "  " 
 format = "<label> "
 exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
 ;format-underline = #99B898
-;format-background = #99B898
-;format-foreground = #FFFFFF
+format-background = #99B898
+format-foreground = #FFFFFF
 click-right = playerctl play-pause
-click-left = bspc desktop -f ^8 
+click-left = bspc desktop -f ^6 
 ;======================================
 
 ;============ clima ==========================
@@ -609,25 +617,11 @@ format-prefix = "  "
 label = "%output%% "
 exec = ~/.config/polybar/scripts/kde-bat
 interval = 300
-;format-background = #BF6715
+format-background = #8D4143
 ;format-underline = #005688
-
 click-left = ~/scripts/kdeconnect-rofi
 
 ;=============================================
-
-[module/cal]
-type = custom/script
-exec = date 
-interval = 1
-click-left = polybar-msg cal ola
-
-[module/caleeeee]
-type = custom/ipc
-hook-0=echo olas
-hook-1=echo adios
-initial=1
-click-left = polybar-msg hook cal 2
 
 ;============ updates =====================
 [module/arch]
@@ -636,6 +630,8 @@ format-prefix = " ﮋ "
 format-prefix-foreground = #F1C124
 label = "%output% " 
 ;format-underline = #D1B927
+format-background = #E48A3C
+format-foreground = #D6D6D6
 click-left = termite -e "sudo pacman -Syuu"
 exec = ~/.config/polybar/scripts/updates-arch.sh
 interval = 600
@@ -651,12 +647,12 @@ tail = true
 ;format-background = #BF6715
 format-foreground = ${colors.foreground}
 
-
 ;=========== apagado ============
 [module/apagar]
 type= custom/text
-content = " "
+content = ""
 click-left = ~/scripts/apagar
+content-background = #483A54
 
 ;=========== workspace name bspwm =============
 [module/wsn]
@@ -682,6 +678,7 @@ format-background = #BF6715
 type = custom/text
 content = " "
 click-left = ~/scripts/clipboard
+content-background = #483A54
 
 ;============ powerline separador ===========
 [module/separador]
@@ -699,6 +696,21 @@ pseudo-transparency = true
 
 ; vim:ft=dosini
 
+[module/sep-der]
+type = custom/text
+content = "%{T3}  %{T-}"
+content-font = 3
+content-foreground = #BF6715
+content-background = #0E132F
+
+[module/sep]
+type = custom/text
+content = " "
+
+[module/sep-menu]
+type = custom/text
+content = "%{T3} %{T-}"
+content-font = 3
 
 [module/sep-date]
 type = custom/text
@@ -761,12 +773,6 @@ content-background =
 
 ;date=
 ;tray=  #CC527A 
-
-
-[module/menu]
-type = custom/text
-content = " "
-click-left = rofi -show drun -location 1 -theme rofi -eh 2 -lines 5 -show-icons -icon-theme Flat-remix Dark
 
 
 [module/menu-apps]

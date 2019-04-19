@@ -8,8 +8,9 @@
 if ! [ -z "$1" ]; then
     if [ $(mimetype --output-format %m $1 | awk -F '/' '{print $1}') == "image" ]; then
 	nitrogen --set-zoom-fill --save $1
+#If you want a notification, uncomment the next three lines.
 #	notify-send -a "nnn" "Wallpaper changed!"
-    else
+#    else
 #	notify-send -a "nnn" "No image selected"
     fi
 fi
