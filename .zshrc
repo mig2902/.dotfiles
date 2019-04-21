@@ -76,3 +76,5 @@ export NNN_TMPFILE=/tmp/nnn
 export NNN_OPENER=mimeopen
 
 bindkey -v
+WINEPREFIX="$HOME/.PlayOnLinux/wineprefix/mania:$WINEPREFIX"
+export WINEPREFIX
