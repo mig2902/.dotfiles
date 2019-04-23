@@ -82,7 +82,9 @@ El directorio es ~/.emacs.d/backups/
 			      (?\[ . ?\])
 			      (?\{ . ?\})
 			      ))
-  (electric-pair-mode t)
+  (setq electric-pair-preserve-balance nil)
+  (electric-pair-mode)
+
    #+END_SRC
 ** Mostrar línea y columna actual en modeline
 #+BEGIN_SRC emacs-lisp

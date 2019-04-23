@@ -56,3 +56,4 @@ Este método hace mucho más sencillo crear los enlaces simbólicos en lugar de 
 - *clipit:* Gestor de portapapeles.
 - *Xarchiver:* Comprimir y descomprimir archivos. Depende de unzip/zip/unrar/rar. Tiene extensión para thunar.
 - *tex-live:* De ser posible, instalar la versión "core".
+- *Material design fonts:* https://github.com/Templarian/MaterialDesign-Webfont/blob/master/fonts/materialdesignicons-webfont.ttf

@@ -117,7 +117,7 @@
       nil))))
  '(org-agenda-files (quote ("~/Drive/sync/gtd/a.org")))
  '(org-file-apps
-   (quote
+   (quote 
     ((auto-mode . emacs)
      ("\\.mm\\'" . default)
      ("\\.x?html?\\'" . default)

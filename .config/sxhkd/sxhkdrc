@@ -19,7 +19,7 @@
 
 #Terminal
 super + Return
-      xfce4-terminal
+      st
 
 #Rofi
 super + d
@@ -29,7 +29,7 @@ super + r
       rofi -modi "window,run,drun" -show run -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
       
 alt + Tab
-    rofi -modi "window,run,drun" -show window -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
+      rofi -modi "window,run,drun" -show window -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
 
 ## Firefox
 super + F2
@@ -43,7 +43,7 @@ super + F2
 super + f
 #      termite -e ranger
 #      termite -e lf
-       xfce4-terminal -e ~/scripts/nwrap
+       st -e ~/scripts/nwrap
 
 #Spotify
 super + F5
@@ -70,11 +70,11 @@ super + i
 
 # Newsboat
 super + n
-      xfce4-terminal -e ~/scripts/newsboat-run
+      st -e ~/scripts/newsboat-run
 
 #htop
 super + F4
-      xfce4-terminal -e ~/scripts/htop-run
+      st -e ~/scripts/htop-run
 
 #Screenshots
 Print
