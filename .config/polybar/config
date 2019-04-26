@@ -152,25 +152,25 @@ ws-icon-7 = 8;
 ;inline-mode = true
 format = <label-state> <label-mode> 
 
-;label-focused = "瘝" 
-label-focused = %icon%
+label-focused = "" 
+;label-focused = %icon%
 label-focused-foreground = #BF3F48
-label-focused-overline = #8D4143
-label-focused-padding = 1
+;label-focused-overline = #8D4143
+;label-focused-padding = 1
 
-label-occupied = %icon%
-;label-occupied = ""
-label-occupied-padding = 1
+;label-occupied = %icon%
+label-occupied = ""
+;label-occupied-padding = 1
 label-occupied-foreground = #BF3F48
 
 label-urgent = %icon%!
 label-urgent-background = 
-label-urgent-padding = 1
+;label-urgent-padding = 1
 
-;label-empty = "吏"
-label-empty = %icon%
+label-empty = ""
+;label-empty = %icon%
 label-empty-foreground = ${colors.foreground}
-label-empty-padding = 1
+;label-empty-padding = 1
 
 label-monocle = 
 label-tiled = 
