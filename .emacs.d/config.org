@@ -696,21 +696,16 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
 (setq telephone-line-height 20)
 ;(telephone-line-mode 1)
 
-(use-package nord-theme
-  :ensure t
-  :config
-  (setq nord-region-highlight "frost")
-  (setq nord-comment-brightness 15)
-  :init
-  (load-theme 'nord t)
-  )
+;(use-package nord-theme
+;  :ensure t
+;  :config
+;  (setq nord-region-highlight "frost")
+;  (setq nord-comment-brightness 15)
+;  :init
+;  (load-theme 'nord t)
+;  )
 ))
 
-(add-hook 'after-make-frame-functions 'my-frame-config)
-(add-hook 'after-init-hook 'my-frame-config)
-#+END_SRC
-* Doom-one-theme
-#+BEGIN_SRC emacs-lisp
   (use-package doom-themes
     :ensure t
     :config
@@ -734,4 +729,16 @@ telephone-line-secondary-right-separator 'telephone-line-tan-hollow-right)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
   )
+
+(add-hook 'after-make-frame-functions 'my-frame-config)
+(add-hook 'after-init-hook 'my-frame-config)
+#+END_SRC
+* Beacon
+#+BEGIN_SRC emacs-lisp
+  (use-package beacon
+    :ensure t
+    :config
+    (beacon-mode 1)
+    )
+
 #+END_SRC
