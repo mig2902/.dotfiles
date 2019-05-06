@@ -16,44 +16,47 @@ Este método hace mucho más sencillo crear los enlaces simbólicos en lugar de 
 
 * Programas que utilizo
 
-** Editores de texto
+** Editor de texto
 - *Emacs:* Poderoso editor de texto, interprete de elisp y más.
-- *Libre Office:* Paquetería de oficina.
-- *Mousepad:* Por si emacs no está disponible.
+- *Vim* Aternativa a Emacs.
+- *Mousepad:* Por si emacs o vim no están disponible.
 
 ** Gestor de archivos
-- *Ranger:* Gestor de archivos TUI escrito en python. Soporta previsualización de imágenes (a veces)
+- *nnn:* Gestor de archivos TUI minimalista, muy extensible y lleno de características útiles. Mi favorito.
 - *Thunar:* Gestor de archivos gráfico de XFCE.
---------------------------------------------
-- *nnn:* Gestor de archivos TUI minimalista.
-- *lf:* Gestor de archivos, clon de ranger, escrito en go. Más rápido, posee características extra y carece de otras.
+- +*Ranger:* Gestor de archivos TUI escrito en python. Soporta previsualización de imágenes (a veces)+
+- +*lf:* Gestor de archivos, clon de ranger, escrito en go. Más rápido, posee características extra y carece de otras.+
 
 ** Multimedia
-- *Mplayer:* reproductor de videos. Si se desea GUI se puede usar SMplayer.
+- *mpv:* Reproductor minimalista, similar a mplayer.
 - *sxiv:* Visor de imágenes suckless.
-- *Clementine:* Reproductor de música escrito en Qt.
 - *Spotify:* Lo pago, lo uso.
+- *Clementine:* Reproductor de música escrito en Qt.
 - *Playerctl:* Herramienta CLI que permite mandar órdenes a reproductores de música y video. Necesario para atajos de teclado en i3 y bspwm.
 - *pamixer:* Similar a playerctl, pero para el volumen.
+- +*Mplayer:* reproductor de videos. Si se desea GUI se puede usar SMplayer.+
 
 ** Internet
 - *Firefox:* Navegador de internet.
-- *Grive2:* Cliente de gmail con syncronización de 2 vías automática.
+- +*Grive2:* Cliente de gmail con syncronización de 2 vías automática.+ He migrado a Pcloud.
 
 ** Otros
-- *KiTTY:* Emulador de terminal rápido y completo, incluye un visor de imágenes integrado.
-- *f.lux:* Automáticamente aplica un filtro de luz azul. Alternativa a redshift.
+- +*KiTTY:* Emulador de terminal rápido y completo, incluye un visor de imágenes integrado.+
+- *st:*Suckless terminal.
+- +*f.lux:* Automáticamente aplica un filtro de luz azul. Alternativa a redshift.+
+- *Redshift:* Aplica u filtro de luz azul. Acepta órdenes por terminal.
 - *kdeconnect:* Conecta el celular con la computadora.
 - *rofi:* Lanzador de aplicaciones. Soporta scripts y sintaxis de dmenu.
 - *Polybar:* Panel personalizable.
 - *flameshot:* Aplicación para tomar capturas de pantalla, incluye herramientas para editar.
+- *pywal:* Genera esquemas de colores a partir del fondo de pantalla.
 - *Nitrogen:* Aplicación para seleccionar fondo de pantalla.
 - *compton:* Compositor de ventanas.
 - *gcolor2:* Selector de colores.
 - *gucharmap:* Selector de caracteres en fuentes.
 - *Fuente Fantasque Sans Mono:* Mi fuente favorita.
 - *htop:* Gestor de tareas.
-- *clipit:* Gestor de portapapeles.
+- +*clipit:* Gestor de portapapeles.+
 - *Xarchiver:* Comprimir y descomprimir archivos. Depende de unzip/zip/unrar/rar. Tiene extensión para thunar.
 - *tex-live:* De ser posible, instalar la versión "core".
 - *Material design fonts:* https://github.com/Templarian/MaterialDesign-Webfont/blob/master/fonts/materialdesignicons-webfont.ttf
