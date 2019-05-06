@@ -41,9 +41,7 @@ Este método hace mucho más sencillo crear los enlaces simbólicos en lugar de 
 - +*Grive2:* Cliente de gmail con syncronización de 2 vías automática.+ He migrado a Pcloud.
 
 ** Otros
-- +*KiTTY:* Emulador de terminal rápido y completo, incluye un visor de imágenes integrado.+
-- *st:*Suckless terminal.
-- +*f.lux:* Automáticamente aplica un filtro de luz azul. Alternativa a redshift.+
+- *st:* Suckless terminal.
 - *Redshift:* Aplica u filtro de luz azul. Acepta órdenes por terminal.
 - *kdeconnect:* Conecta el celular con la computadora.
 - *rofi:* Lanzador de aplicaciones. Soporta scripts y sintaxis de dmenu.
@@ -56,7 +54,9 @@ Este método hace mucho más sencillo crear los enlaces simbólicos en lugar de 
 - *gucharmap:* Selector de caracteres en fuentes.
 - *Fuente Fantasque Sans Mono:* Mi fuente favorita.
 - *htop:* Gestor de tareas.
-- +*clipit:* Gestor de portapapeles.+
 - *Xarchiver:* Comprimir y descomprimir archivos. Depende de unzip/zip/unrar/rar. Tiene extensión para thunar.
 - *tex-live:* De ser posible, instalar la versión "core".
 - *Material design fonts:* https://github.com/Templarian/MaterialDesign-Webfont/blob/master/fonts/materialdesignicons-webfont.ttf
+- +*f.lux:* Automáticamente aplica un filtro de luz azul. Alternativa a redshift.+
+- +*KiTTY:* Emulador de terminal rápido y completo, incluye un visor de imágenes integrado.+
+- +*clipit:* Gestor de portapapeles.+
