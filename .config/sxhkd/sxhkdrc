@@ -23,13 +23,13 @@ super + Return
 
 #Rofi
 super + d
-      rofi -modi "window,run,drun" -show drun -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark  
+      rofi -modi "window,run,drun" -show drun -theme material -lines 5 -show-icons -icon-theme Papirus Dark  
       
 super + r
-      rofi -modi "window,run,drun" -show run -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
+      rofi -modi "window,run,drun" -show run -theme material -lines 5 -show-icons -icon-theme Papirus Dark
       
 alt + Tab
-      rofi -modi "window,run,drun" -show window -theme material -lines 5 -show-icons -icon-theme Flat-remix Dark
+      rofi -modi "window,run,drun" -show window -theme material -lines 5 -show-icons -icon-theme Papirus Dark
 
 ## Firefox
 super + F2

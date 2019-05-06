@@ -87,8 +87,9 @@ compton -b --config ~/.config/compton.conf &
 xfce4-power-manager &
 pcloud &
 copyq &
-conky -c ~/conkys/material &
-conky -c ~/conkys/agenda &
+#conky -c ~/conkys/material &
+#conky -c ~/conkys/agenda &
+conky -c ~/conkys/reloj-texto &
 xautolock -locker i3lock-fancy -f Fantasque-Sans-Mono-Regular -t Contraseña, mode "default" &
 emacs --daemon &
 polybar -c ~/.config/polybar/config example -r &

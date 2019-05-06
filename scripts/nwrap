@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
 
 export NNN_TRASH=1
 export NNN_OPENER_DETACH=1
