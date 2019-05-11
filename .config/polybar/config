@@ -352,8 +352,8 @@ animation-discharging-framerate = 750
 [module/red]
 type = custom/script
 exec = ~/.config/polybar/scripts/check-network
-click-left = ~/scripts/check-network-rofi &
-click-right = ~/scripts/check-network-rofi &
+click-left = ~/scripts/check-network-es &
+click-right = ~/scripts/check-network-es &
 ;format-background = #483A54
 label-padding = 1
 tail = true
@@ -388,7 +388,7 @@ exec = ~/.config/polybar/scripts/kde-bat
 interval = 300
 ;format-background = #8D4143
 ;format-underline = #005688
-click-left = ~/scripts/kdeconnect-rofi
+click-left = ~/scripts/kdeconnect-dmenu
 
 
 [module/arch]
@@ -426,7 +426,8 @@ content-padding = 1
 [module/copy]
 type = custom/text
 content = " "
-click-left = ~/scripts/clipboard
+click-left = copyq copy $(copyq read 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 | dmenu -i -p "Portapapeles" -l 15)
+
 ;content-background = #483A54
 content-padding = 1
 

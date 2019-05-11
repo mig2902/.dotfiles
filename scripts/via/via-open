@@ -19,10 +19,10 @@ while read arg; do
 			;;
 		*.mp3)
 			#$TERMINAL mpg123 -opulse "$arg" &
-		         mplayer "arg" &
+		         mpv "arg" &
 			;;
 		*.mp4|*.flv|*mkv|*.avi)
-		        mplayer "$arg" &
+		        mpv "$arg" &
 		        ;;
 		*.od[tsp]|*.doc|*.docx|*.ppt|*.pptx|*.xls|*.xlsx)
 			libreoffice "$arg" &
@@ -43,7 +43,7 @@ while read arg; do
 					cd -
 					;;
 				image/*)
-					sxiv "$arg" &
+					mimeopen "$arg" &
 					;;
 				*)
 					exit 1

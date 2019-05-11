@@ -25,12 +25,11 @@ super + Return
 #Rofi
 super + d
 #     rofi -modi "window,run,drun" -show drun -theme material -lines 5 -show-icons -icon-theme Papirus Dark  
-      ~/scripts/dmenu_run_history -i -l 12 -fn "Roboto:Medium:size=12" -nb "#282c34" -sb "#bbc2cf" -sf "#1e2127" -h 25 -w 600 -x 340 -y 350
+       j4-dmenu-desktop --dmenu="dmenu -i -w 600 -x 340 -y 272 -l 12 -h 40" --display-binary --no-generic --usage-log=/home/$USER/.cache/j4-dmenu.log
 
-      
 super + r
-      rofi -modi "window,run,drun" -show run -theme material -lines 5 -show-icons -icon-theme Papirus Dark
-      
+      dmenu_run_history -i -l 12
+
 alt + Tab
       rofi -modi "window,run,drun" -show window -theme material -lines 5 -show-icons -icon-theme Papirus Dark
 
@@ -73,7 +72,8 @@ super + i
 
 # Newsboat
 super + n
-      st -e ~/scripts/newsboat-run
+#      st -e ~/scripts/newsboat-run
+       st -e newsboat
 
 #htop
 super + F4
@@ -142,7 +142,7 @@ alt + space
 
 #Kde-connect
 super + p
-      ~/scripts/kdeconnect-rofi
+      ~/scripts/kdeconnect-dmenu
 
 #Apagar
 super + F12
@@ -150,7 +150,7 @@ super + F12
 
 # Nubes
 super + ctrl + p
-      ~/scripts/rclone-rofi
+      ~/scripts/clipboard
 
 
 
