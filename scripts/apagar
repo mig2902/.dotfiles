@@ -1,7 +1,7 @@
 #!/bin/sh
 
-var=$(echo -e "Apagar\nBloquear\nReiniciar\nCerrar sesión\nCancelar" | rofi -dmenu -theme material -theme-str '#window {height: 350; }' -eh 1 -i -p "¿Desea salir?") 
-
+# var=$(echo -e "Apagar\nBloquear\nReiniciar\nCerrar sesión\nCancelar" | rofi -dmenu -theme material -theme-str '#window {height: 350; }' -eh 1 -i -p "¿Desea salir?") 
+var=$(echo -e "Apagar\nBloquear\nReiniciar\nCerrar sesión\nCancelar" | dmenu -l 5 -p "¿Desea salir?") 
 
 if [ "$var" == 'Apagar' ]
 then
