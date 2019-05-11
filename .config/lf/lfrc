@@ -29,11 +29,12 @@ set scrolloff 10
 
 cmd open &{{
     case $(file --mime-type "$f" -b) in
-        text/*) /home/$USER/.config/lf/emc $f;;
+        text/*) setsid /home/$USER/.config/lf/emc $f;;
 	audio/mpeg) mpv $f;;
+	video/*) setsid mpv $f > /dev/null 2 2>&1 & ;;
 	image/*) sxiv-view $f;;
-        *) for f in $f; do $OPENER $f > /dev/null 2> /dev/null & done;;
-    esac & disown
+        *) for f in $f; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac 
 }}
 
 # rename current file without overwrite

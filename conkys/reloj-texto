@@ -6,6 +6,7 @@ conky.config = {
     default_color = '#ABB2BF',
     default_outline_color = '#4d4d4c',
     default_shade_color = '#4d4d4c',
+    double_buffer = true,
     draw_borders = false,
     draw_graph_borders = true,
     draw_outline = false,
@@ -34,6 +35,8 @@ conky.config = {
     use_spacer = 'none',
     show_graph_scale = false,
     show_graph_range = false,
+    short_units = true,
+    update_interval = 1,
 }
 
 conky.text = [[

@@ -398,8 +398,8 @@ format-prefix-foreground = #F1C124
 label = "%output% " 
 ;format-underline = #D1B927
 ;format-background = #E48A3C
-format-foreground = #D6D6D6
-click-left = termite -e "sudo pacman -Syuu"
+format-foreground = 
+click-left = st -e sudo pacman -Syuu
 exec = ~/.config/polybar/scripts/updates-arch.sh
 interval = 600
 
