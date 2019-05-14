@@ -13,11 +13,18 @@
 | nmount | sh | pmount | Toggle mount status of a device as normal user |
 | nwal | sh | nitrogen | Set the selected image as wallpaper using nitrogen |
 | pastebin | sh | [pastebinit](https://launchpad.net/pastebinit) | Paste contents of current (text) file to paste.ubuntu.com |
+| pdfview | sh | pdftotext, `$PAGER` | View current PDF file |
 | picker | sh | nnn | Pick files and pipe the newline-separated list to another utility |
 | pywal | sh | pywal | Set selected image as wallpaper, change terminal color scheme |
 | sxiv | sh | sxiv | Browse images in a dir in sxiv, set wallpaper, copy path ([config](https://wiki.archlinux.org/index.php/Sxiv#Assigning_keyboard_shortcuts))|
 | transfer | sh | curl | Upload current file to transfer.sh |
 | upgrade | sh | wget | Upgrade to latest nnn version manually on Debian 9 Stretch |
+
+#### Installing plugins
+
+Download the `getplugs` plugin and execute it anywhere to get all the plugins installed to `~/.config/nnn/plugins`. You can run it again later to update the plugins.
+
+**NOTE:** `getplugs` also downloads the launcher `nlaunch` and tries to place it at `/usr/local/bin/` using `sudo`. If it fails you have to place `nlauch` manually somewhere in your `$PATH`.
 
 #### File access from plugins
 
