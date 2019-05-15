@@ -5,19 +5,22 @@
 
 unmountusb() {
 	[ -z "$drives" ] && exit
-	chosen=$(echo "$drives" | dmenu -i -p "¿Qué dispositivo desea extraer?" | awk '{print $1}')
+	#chosen=$(echo "$drives" | dmenu -i -p "¿Qué dispositivo desea extraer?" | awk '{print $1}')
+	chosen=$(echo "$drives" | rofi -theme drofi -dmenu -i -p "¿Qué dispositivo desea extraer?" | awk '{print $1}')
 	[ -z "$chosen" ] && exit
 	udisksctl unmount -b "$chosen" && udisksctl power-off -b "$chosen" && notify-send "$chosen extraido."
 	}
 
 unmountandroid() { \
-	chosen=$(awk '/simple-mtpfs/ {print $2}' /etc/mtab | dmenu -i -p "¿Qué dispositivo desea extraer?")
+	#chosen=$(awk '/simple-mtpfs/ {print $2}' /etc/mtab | dmenu -i -p "¿Qué dispositivo desea extraer?")
+	chosen=$(awk '/simple-mtpfs/ {print $2}' /etc/mtab | rofi -theme drofi -dmenu -i -p "¿Qué dispositivo desea extraer?")
 	[ -z "$chosen" ] && exit
 	fusermount -u "$chosen" notify-send "$chosen desmontado."
 	}
 
 asktype() { \
-	case $(printf "USB\\nAndroid" | dmenu -i -p "¿Extraer USB o dispositivo Android?") in
+	#case $(printf "USB\\nAndroid" | dmenu -i -p "¿Extraer USB o dispositivo Android?") in
+	case $(printf "USB\\nAndroid" | rofi -theme drofi -dmenu -i -p "¿Extraer USB o dispositivo Android?") in
 		USB) unmountusb ;;
 		Android) unmountandroid ;;
 	esac

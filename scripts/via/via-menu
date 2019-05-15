@@ -1,3 +1,5 @@
 #!/bin/bash
 
-dmenu  -p "Archivo/comando" -i -l 12
+#dmenu  -p "Archivo/comando" -i -l 12
+rofi -dmenu -p "Archivo/comando" -i -theme drofi -theme-str '#listview {layout: vertical; lines: 12;} horibox {orientation: vertical;}'
+

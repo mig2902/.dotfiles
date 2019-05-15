@@ -24,11 +24,13 @@ super + Return
 
 #Rofi
 super + d
-#     rofi -modi "window,run,drun" -show drun -theme material -lines 5 -show-icons -icon-theme Papirus Dark  
-       j4-dmenu-desktop --dmenu="dmenu -i -w 600 -x 340 -y 272 -l 12 -h 40" --display-binary --no-generic --usage-log=/home/$USER/.cache/j4-dmenu.log
+     rofi -modi "window,run,drun" -show drun -theme material 
+#      j4-dmenu-desktop --dmenu="dmenu -i -w 600 -x 340 -y 272 -l 12 -h 40" --display-binary --no-generic --usage-log=/home/$USER/.cache/j4-dmenu.log
 
 super + r
-      dmenu_run_history -i -l 12
+#      dmenu_run_history -i -l 12
+     rofi -modi "window,run,drun" -show run -theme material 
+
 
 alt + Tab
       rofi -modi "window,run,drun" -show window -theme material -lines 5 -show-icons -icon-theme Papirus Dark
@@ -142,7 +144,7 @@ alt + space
 
 #Kde-connect
 super + p
-      ~/scripts/kdeconnect-dmenu
+      ~/scripts/kdeconnect-rofi
 
 #Apagar
 super + F12
