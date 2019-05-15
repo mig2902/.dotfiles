@@ -1,7 +1,7 @@
 #!/bin/sh
 
-var=$(echo -e "Apagar\nBloquear\nReiniciar\nCerrar sesión\nCancelar" | rofi -dmenu -theme drofi -i -p "¿Desea salir?") 
-#var=$(echo -e "Apagar\nBloquear\nReiniciar\nCerrar sesión\nCancelar" | dmenu -i -p "¿Desea salir?") 
+#var=$(echo -e "Apagar\nBloquear\nReiniciar\nCerrar sesión\nCancelar" | rofi -dmenu -theme drofi -i -p "¿Desea salir?") 
+var=$(echo -e "Apagar\nBloquear\nReiniciar\nCerrar sesión\nCancelar" | dmenu -i -p "¿Desea salir?") 
 
 if [ "$var" == 'Apagar' ]
 then
@@ -22,6 +22,3 @@ elif [ "$var" == 'Cancelar' ]
 then
     echo cancelado
 fi
-
-
-#-theme-str '#window {fullscreen: true; } #mainbox {padding: 300 300px;}' 
