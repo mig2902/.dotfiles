@@ -11,7 +11,6 @@
 	sidebar-mode:    true;
 } 
 
-
 * {
     active-background: #bbc2cf;
     active-foreground: @foreground;
@@ -114,7 +113,7 @@ entry {
 	background: 	transparent;
 	vertical-align: 1;
 	padding:        12px;
-	font:           "Fantasque Sans Mono 11";
+	font:           "Roboto 11";
 }
 
 element normal.normal {
