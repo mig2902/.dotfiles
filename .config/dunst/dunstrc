@@ -1,8 +1,7 @@
 [global]
     frame_width = 2
     frame_color = "#5294E2"
-    
-    font = Fantasque Sans Mono 11
+    font = Roboto 11
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -151,7 +150,7 @@
     icon_position = left
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Flat-Remix-Dark
+    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/status/
 
     # Limit icons size.
     max_icon_size=128

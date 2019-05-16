@@ -28,11 +28,9 @@ primary = #BF616A
 secondary = #e60053
 alert = #238792
 
-
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
 
 [bar/example]
 width = 100% ;largo
@@ -55,7 +53,6 @@ padding-left = 0
 padding-right = 0 
 module-margin-left = 0
 module-margin-right = 0
-
 locale = es_MX.UTF-8
 
 ;========================================
@@ -70,10 +67,7 @@ font-4 = Material Design Icons:style=Regular:pixelsize=16;1
 
 ;=========================================
 
-;========================
-; ORDE	N DE LOS MÓDULOS
-;========================
-
+;====== MODULOS =========
 modules-left = i3 bspwm xwindow
 modules-center = 
 modules-right = spotify sep pulseaudio sep kde  sep arch  sep date  sep red copy apagar
@@ -81,11 +75,9 @@ modules-right = spotify sep pulseaudio sep kde  sep arch  sep date  sep red copy
 tray-position = none
 tray-padding = 1
 ;tray-background = #bf6a87
-;tray-background = #BF6715
 ;tray-underline = #1C98C9
 ;tray-detached = true
-;no sepo
-;wm-restack = bspwm
+wm-restack = bspwm
 ;wm-restack = i3
 override-redirect = false
 
@@ -96,7 +88,6 @@ override-redirect = false
 ;cambiar de escritorio con la mousewheel
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
 
