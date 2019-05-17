@@ -38,6 +38,8 @@ alt + Tab
 ## Firefox
 super + F2
       firefox
+super + w
+      ~/scripts/links-dmenu
 
 #Chromium
 #super + F2
