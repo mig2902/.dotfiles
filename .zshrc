@@ -72,9 +72,19 @@ export LC_COLLATE="C"
 #export NNN_IDLE_TIMEOUT=900
 export NNN_PLAIN_FILTER=1
 export NNN_COPIER="/home/equipo/scripts/nnn/copier"
-export NNN_TMPFILE=/tmp/nnn
+export NNN_TMPFILE="/tmp/nnn"
 export NNN_OPENER=mimeopen
 
 bindkey -v
 WINEPREFIX="$HOME/.PlayOnLinux/wineprefix/mania:$WINEPREFIX"
 export WINEPREFIX
+
+n()
+{
+        nnn "$@"
+
+        if [ -f $NNN_TMPFILE ]; then
+                . $NNN_TMPFILE
+                rm $NNN_TMPFILE
+        fi
+}
