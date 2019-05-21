@@ -43,23 +43,20 @@ COMPLETION_WAITING_DOTS="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
  HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
-
 source $ZSH/oh-my-zsh.sh
 
 PATH="$HOME/scripts:$PATH"
 export PATH
 
-alias drive="~/scripts/grive-sync.sh"
-alias DRIVE="~/scripts./grive-sync.sh"
 alias emc="emacsclient -c"
 alias emt="emacsclient -t"
 alias ranger="~/.sources/ranger/ranger.py"
 #neofetch | lolcat
-neofetch --ascii "$(fortune-es |cowsay -W 29)"
+#neofetch --ascii "$(fortune-es |cowsay -W 29)"
+#ufetch && fortune-es | cowsay -W 30
+ufetch-pepe
 #neofetch --ascii "$(fortune jojos eva|cowsay -W 29)" 
 alias E="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
-
 
 ###### NNN #################
 export NNN_TRASH=1
