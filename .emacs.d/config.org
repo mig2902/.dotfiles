@@ -334,10 +334,20 @@ El directorio es ~/.emacs.d/backups/
                                           "}")) ""))))
  #+END_SRC
 ** Exportar en Reveal.js
+   #+BEGIN_SRC emacs-lisp
+     (use-package org-re-reveal
+       :ensure t
+       )
+     (use-package org-re-reveal-ref
+       :ensure t)
+     (use-package oer-reveal
+       :ensure t)
+     (setq org-re-reveal-root "file:///home/equipo/revealjs")
+     (setq org-re-reveal-title-slide nil)
+   #+END_SRC
  #+BEGIN_SRC emacs-lisp
- (require 'ox-reveal)
- (setq org-reveal-root "file:///home/equipo/revealjs")
- (setq org-reveal-title-slide nil)
+   ;(require 'ox-reveal)
+   ;(setq org-reveal-root "file:///home/equipo/revealjs")
  #+END_SRC
 
 ** Formatos extra para latex
